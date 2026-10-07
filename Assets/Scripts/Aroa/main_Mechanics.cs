@@ -9,9 +9,10 @@ public class main_Mechanics : MonoBehaviour
     public float acceleration = 20f;
     public float deceleration = 50f;
     public float rotationSpeed = 90f;
+    public float fuerzaSalto = 12f;
+    public float gravedad = 30f;
+    private float velocidadVertical = 0f;
     public float currentSpeed = 0f;
-    public float alturaSalto = 2.5f;
-    public float gravedadSalto = -25f;
     private bool estaEnSuelo;
 
     private Rigidbody rb;
@@ -60,7 +61,7 @@ public class main_Mechanics : MonoBehaviour
         // ACELERAR / FRENAR
         // =========================
 
-        if (movimiento == -1)
+        if (movimiento == -1 && estaEnSuelo)
         {
             // Frenar doble de rápido
             currentSpeed = Mathf.MoveTowards(
@@ -95,7 +96,11 @@ public class main_Mechanics : MonoBehaviour
         // MOVER PERSONAJE
         // =========================
 
-        rb.velocity = transform.forward * currentSpeed;
+        rb.velocity = new Vector3(
+            transform.forward.x * currentSpeed,
+            rb.velocity.y,
+            transform.forward.z * currentSpeed
+        );
 
         // =========================
         // A / D
@@ -132,32 +137,32 @@ public class main_Mechanics : MonoBehaviour
 
     public void Jump()
     {
-         // SALTAR
+        // Saltar
         if (Input.GetKeyDown(KeyCode.Space) && estaEnSuelo)
         {
-            float velocidadSalto = Mathf.Sqrt(
-                alturaSalto * -2f * gravedadSalto
-            );
-
-            rb.velocity = new Vector3(
-                rb.velocity.x,
-                velocidadSalto,
-                rb.velocity.z
-            );
-
+            velocidadVertical = fuerzaSalto;
             estaEnSuelo = false;
         }
 
-        // GRAVEDAD DEL SALTO
+        // Gravedad
         if (!estaEnSuelo)
         {
-            rb.AddForce(
-                Vector3.up * gravedadSalto,
-                ForceMode.Acceleration
-            );
+            velocidadVertical -= gravedad * Time.fixedDeltaTime;
         }
-    }
+        else
+        {
+            // Evitar que se acumule velocidad hacia abajo
+            if (velocidadVertical < 0)
+            {
+                velocidadVertical = 0;
+            }
+        }
 
+        // Aplicar velocidad vertical manteniendo el movimiento horizontal
+        Vector3 velocidad = rb.velocity;
+        velocidad.y = velocidadVertical;
+        rb.velocity = velocidad;
+    }
     public void ZoomCamera()
     {
         GameObject camara = camaraPositions[0];
