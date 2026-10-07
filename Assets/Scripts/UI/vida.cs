@@ -7,13 +7,22 @@ public class vida : MonoBehaviour
 {
     public int vidaMaxima = 100;
     public int vidaActual;
-
+    public float velocidadCuracion = 5f;
     public Slider barraVida;
 
     void Start()
     {
         barraVida.maxValue = vidaMaxima;
         barraVida.value = vidaActual;
+    }
+
+    void Update()
+    {
+        barraVida.value = Mathf.MoveTowards(
+            barraVida.value,
+            vidaActual,
+            velocidadCuracion * Time.deltaTime
+        );
     }
 
     public void RecibirDaño(int daño)

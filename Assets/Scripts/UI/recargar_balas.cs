@@ -14,7 +14,7 @@ public class recargar_balas : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !recargando)
+        if (Input.GetKeyDown(KeyCode.R) && !recargando)
         {
             StartCoroutine(RecargarBalas());
         }
