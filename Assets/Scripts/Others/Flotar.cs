@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class Flotar : MonoBehaviour
 {
+    public string type;
     public TextMeshProUGUI contador;
+    public Slider barraVida;
     public float altura = 0.3f;
     public float velocidad = 10f;
     public int cantidad = 10;
@@ -28,13 +31,24 @@ public class Flotar : MonoBehaviour
         );
     }
 
+    public void SumarBalas()
+    {
+        int numero = int.Parse(contador.text.Replace("/ ", ""));
+        numero += cantidad;
+        contador.text = "/ " + numero.ToString();
+    }
+
+    public void SumarVida()
+    {
+        barraVida.value += cantidad;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            int numero = int.Parse(contador.text);
-            numero += cantidad;
-            contador.text = numero.ToString();
+            if(type == "bala"){SumarBalas();}
+            else if (type == "vida"){SumarVida();}
             gameObject.SetActive(false);
             Invoke("Reaparecer", 10f);
         }
