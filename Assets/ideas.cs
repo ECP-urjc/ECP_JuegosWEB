@@ -9,7 +9,7 @@
     - Disparo
         [DONE pero con "I"] CLICK CERECHO apuntar
         CLICK IZQUIERDO disparar
-        [DONE] E recargar balas
+        [DONE] R recargar balas
 
     - UI Ideas
         * Si mantienes pulsado el shift se relentiza el tiempo (carga)

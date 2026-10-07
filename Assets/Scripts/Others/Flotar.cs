@@ -12,8 +12,9 @@ public class Flotar : MonoBehaviour
     public float altura = 0.3f;
     public float velocidad = 10f;
     public int cantidad = 10;
-
     private float posicionInicialY;
+
+    public vida UI_Atributos;
 
     void Start()
     {
@@ -36,19 +37,27 @@ public class Flotar : MonoBehaviour
         int numero = int.Parse(contador.text.Replace("/ ", ""));
         numero += cantidad;
         contador.text = "/ " + numero.ToString();
+        gameObject.SetActive(false);
     }
 
     public void SumarVida()
     {
-        barraVida.value += cantidad;
+        UI_Atributos.vidaActual += cantidad;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if(type == "bala"){SumarBalas();}
-            else if (type == "vida"){SumarVida();}
+            if (type == "bala")
+            {
+                SumarBalas();
+            }
+            else if (type == "vida")
+            {
+                SumarVida();
+            }
+
             gameObject.SetActive(false);
             Invoke("Reaparecer", 10f);
         }
