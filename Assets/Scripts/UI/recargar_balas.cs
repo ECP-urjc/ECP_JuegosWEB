@@ -5,10 +5,13 @@ using TMPro;
 
 public class recargar_balas : MonoBehaviour
 {
+    [Header("UI texts")]
     public TextMeshProUGUI numBalas;
     public TextMeshProUGUI totalBalas;
 
+    [Header("Configuración")]
     public float tiempoEntreBalas = 0.1f;
+    public int maxBalas = 10;
 
     private bool recargando = false;
 
@@ -28,7 +31,7 @@ public class recargar_balas : MonoBehaviour
         int balas = int.Parse(numBalas.text.Replace("/ ", ""));
 
         // Pasar balas una a una
-        while (balas < 10 && total > 0)
+        while (balas < maxBalas && total > 0)
         {
             total--;
             balas++;

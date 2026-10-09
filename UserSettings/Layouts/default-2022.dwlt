@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 115
+  controlID: 56
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 116
+  controlID: 57
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 46
+  controlID: 58
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 47
+  controlID: 48
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -213,8 +213,8 @@ MonoBehaviour:
     y: 0
     width: 233.33333
     height: 428.66666
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 281.3333
     height: 627.3334
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -439,23 +439,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: e87cffff
-      m_LastClickedID: -33560
-      m_ExpandedIDs: e87cffff0cf6ffff30fbffff3e5e0000965f0000
+      m_SelectedIDs: 185f0000
+      m_LastClickedID: 24344
+      m_ExpandedIDs: 30fbffff405e0000185f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Aroa
-        m_OriginalName: Aroa
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 24470
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 9}
       m_SearchString: 
@@ -847,9 +847,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 25.921593, y: -44.725853, z: 321.24545}
+    m_Target: {x: 66.31305, y: 4.8182497, z: -51.343212}
     speed: 2
-    m_Value: {x: 25.921593, y: -44.725853, z: 321.24545}
+    m_Value: {x: 66.31305, y: 4.8182497, z: -51.343212}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -895,13 +895,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.12134063, y: -0.759136, z: 0.14837952, w: -0.62257963}
+    m_Target: {x: 0.11316483, y: -0.7158988, z: 0.118878976, w: 0.6792267}
     speed: 2
-    m_Value: {x: -0.121302254, y: -0.75889593, z: 0.1483326, w: -0.6223827}
+    m_Value: {x: 0.11311968, y: -0.7156132, z: 0.118831545, w: 0.67895573}
   m_Size:
-    m_Target: 70.71068
+    m_Target: 2.4494898
     speed: 2
-    m_Value: 70.71068
+    m_Value: 2.4494898
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1041,7 +1041,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts/UI
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1049,16 +1049,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets
+  - Assets/Scripts/UI
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\ruben\OneDrive - Universidad Rey Juan Carlos\Escritorio\ECP_JuegosWEB
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 16600000
-    m_LastClickedID: 24598
-    m_ExpandedIDs: 00000000166000002660000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 98.33328}
+    m_SelectedIDs: 72600000
+    m_LastClickedID: 24690
+    m_ExpandedIDs: 00000000266000003660000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1086,7 +1086,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000016600000
+    m_ExpandedIDs: 0000000026600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1117,15 +1117,15 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300008c760000d8a70000c6740000ba740000b877000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: giro_camara
-      m_OriginalName: giro_camara
+      m_Name: Zombie_spawner_prueba
+      m_OriginalName: Zombie_spawner_prueba
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 36400
+      m_UserData: 34298
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -1164,8 +1164,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 501.33334
-    width: 998.3333
-    height: 177.66666
+    width: 997.6667
+    height: 177.66672
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1212,7 +1212,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 24150
+  m_LastSelectedObjectID: 24344
 --- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1254,7 +1254,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 244.66669
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
