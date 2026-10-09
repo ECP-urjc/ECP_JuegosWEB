@@ -16,6 +16,7 @@ public class main_Mechanics : MonoBehaviour
     public float maxSpeed = 70f;
     public float acceleration = 20f;
     public float deceleration = 50f;
+    public float marchaatrasMax = 10f;
     public float rotationSpeed = 90f;
     public float fuerzaSalto = 12f;
     public float gravedad = 30f;
@@ -75,7 +76,7 @@ public class main_Mechanics : MonoBehaviour
             // Frenar doble de rápido
             currentSpeed = Mathf.MoveTowards(
                 currentSpeed,
-                0f,
+                -marchaatrasMax,
                 deceleration * 1.8f * Time.fixedDeltaTime
             );
         }
