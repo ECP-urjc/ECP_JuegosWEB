@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class vida : MonoBehaviour
 {
+    [Header("Personaje")]
+    public main_Mechanics personajeScript;
+
+    [Header("Ajustes Vida")]
     public int vidaMaxima = 100;
     public int vidaActual;
     public float velocidadCuracion = 5f;
@@ -18,6 +22,7 @@ public class vida : MonoBehaviour
 
     void Update()
     {
+        vidaActual = personajeScript.vida;
         barraVida.value = Mathf.MoveTowards(
             barraVida.value,
             vidaActual,
@@ -33,11 +38,7 @@ public class vida : MonoBehaviour
             vidaActual = 0;
 
         barraVida.value = vidaActual;
-
-        if (vidaActual <= 0)
-        {
-            Morir();
-        }
+        Morir();
     }
 
     void Morir()

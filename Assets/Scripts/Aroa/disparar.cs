@@ -5,6 +5,7 @@ using TMPro;
 
 public class disparar : MonoBehaviour
 {
+    [Header("Configuración Disparo")]
     public TextMeshProUGUI numBalas;
     public GameObject prefabBala;
     public Transform puntoDisparo;
@@ -15,7 +16,7 @@ public class disparar : MonoBehaviour
         int numBalasInt;
         int.TryParse(numBalas.text, out numBalasInt);
 
-        if (Input.GetKeyDown(KeyCode.Y) && numBalasInt > 0)
+        if ((Input.GetKeyDown(KeyCode.I) || Input.GetMouseButtonDown(0)) && numBalasInt > 0)
         {
             DispararBala();
 
