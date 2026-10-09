@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Suelo
   - Zombie
+  - bala
+  - Traspasable
   layers:
   - Default
   - TransparentFX
