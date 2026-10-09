@@ -6,15 +6,18 @@ using UnityEngine.UI;
 
 public class Flotar : MonoBehaviour
 {
+    [Header("Personaje")]
+    public main_Mechanics personajeScript;
+
+    [Header("Elegir 'bala' o 'vida'")]
     public string type;
     public TextMeshProUGUI contador;
-    public Slider barraVida;
+
+    [Header("Flotar Movimiento")]
     public float altura = 0.3f;
     public float velocidad = 10f;
     public int cantidad = 10;
     private float posicionInicialY;
-
-    public vida UI_Atributos;
 
     void Start()
     {
@@ -42,7 +45,7 @@ public class Flotar : MonoBehaviour
 
     public void SumarVida()
     {
-        UI_Atributos.vidaActual += cantidad;
+        personajeScript.vida += cantidad;
     }
 
     private void OnTriggerEnter(Collider other)

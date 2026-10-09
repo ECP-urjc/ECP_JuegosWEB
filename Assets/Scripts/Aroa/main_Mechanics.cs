@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Unity.UI;
 
 public class main_Mechanics : MonoBehaviour
 {
+    [Header("Cámara")]
     public GameObject[] camaraPositions;
     public GameObject mira;
+
+    [Header("Atributos")]
+    public int vida;
+    public int stamina;
+
+    [Header("Movimiento")]
     public float maxSpeed = 70f;
     public float acceleration = 20f;
     public float deceleration = 50f;
@@ -15,6 +21,7 @@ public class main_Mechanics : MonoBehaviour
     public float gravedad = 30f;
     private float velocidadVertical = 0f;
     public float currentSpeed = 0f;
+
     private bool estaEnSuelo;
 
     private Rigidbody rb;
@@ -174,7 +181,7 @@ public class main_Mechanics : MonoBehaviour
         bool hacerZoom = false;
 
         // Detectar si está apuntando
-        if (Input.GetKey(KeyCode.I))
+        if (Input.GetKey(KeyCode.P) || Input.GetMouseButton(1))
         {
             hacerZoom = true;
         }
