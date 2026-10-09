@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.UI;
 
 public class main_Mechanics : MonoBehaviour
 {
     public GameObject[] camaraPositions;
+    public GameObject mira;
     public float maxSpeed = 70f;
     public float acceleration = 20f;
     public float deceleration = 50f;
@@ -189,6 +191,7 @@ public class main_Mechanics : MonoBehaviour
                 ZoomIn.transform.rotation,
                 15f * Time.deltaTime
             );
+            mira.SetActive(true);
         }
 
         // Volver la camara a la posición original
@@ -203,6 +206,7 @@ public class main_Mechanics : MonoBehaviour
                 ZoomOut.transform.rotation,
                 15f * Time.deltaTime
             );
+            mira.SetActive(false);
         }
     }
 
