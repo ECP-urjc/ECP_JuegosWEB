@@ -32,7 +32,6 @@ public class main_Mechanics : MonoBehaviour
 
     [Header("Internas")]
     public TextMeshProUGUI texto;
-    public TextMeshProUGUI puntosTexto;
     private float currentSpeed = 0f;
     private bool estaEnSuelo;
     private bool quiereSaltar = false;
