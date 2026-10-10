@@ -5,15 +5,16 @@ using TMPro;
 
 public class bala : MonoBehaviour
 {
-    [Header("Configuración")]
-    public TextMeshProUGUI puntaje;
+    [Header("Personaje")]
+    public main_Mechanics personajeScript;
 
     [Header("Configuración")]
     public float velocidad = 20f;
+    public int puntaje;
 
     void FixedUpdate()
     {
-        transform.position += transform.forward * velocidad * Time.deltaTime;
+        transform.position += transform.forward * velocidad * Time.fixedDeltaTime;
     }
 
     void OnTriggerEnter(Collider other)
@@ -22,14 +23,11 @@ public class bala : MonoBehaviour
         if (other.CompareTag("Zombie"))
         {
             Destroy(other.gameObject);
-            int puntajeInt;
-            int.TryParse(puntaje.text, out puntajeInt);
-            puntajeInt++;
-            puntaje.text = puntajeInt.ToString("D5");
+            personajeScript.puntaje += puntaje;
             Destroy(gameObject);
         }
-        // La bala desaparece al tocar cuaqlquier objeto q no sea traspasable
-        else if (!other.CompareTag("Traspasable"))
+        // La bala desaparece al tocar cuaqlquier objeto q no sea traspasable, el jugador o un trigger random
+        else if (!other.CompareTag("Traspasable") && !other.CompareTag("Player") && !other.CompareTag("Trigger"))
         {
             Destroy(gameObject);
         }
