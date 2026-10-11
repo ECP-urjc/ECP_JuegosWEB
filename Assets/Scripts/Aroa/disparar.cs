@@ -5,23 +5,20 @@ using TMPro;
 
 public class disparar : MonoBehaviour
 {
+    [Header("Personaje")]
+    public main_Mechanics personajeScript;
+
     [Header("Configuración Disparo")]
-    public TextMeshProUGUI numBalas;
     public GameObject prefabBala;
     public Transform puntoDisparo;
     public float velocidadBala = 20f;
 
     void Update()
     {
-        int numBalasInt;
-        int.TryParse(numBalas.text, out numBalasInt);
-
-        if ((Input.GetKeyDown(KeyCode.I) || Input.GetMouseButtonDown(0)) && numBalasInt > 0)
+        if ((Input.GetKeyDown(KeyCode.I) || Input.GetMouseButtonDown(0)) && personajeScript.balasCargadas > 0)
         {
+            personajeScript.balasCargadas--;
             DispararBala();
-
-            numBalasInt--;
-            numBalas.text = numBalasInt.ToString();
         }
     }
 
