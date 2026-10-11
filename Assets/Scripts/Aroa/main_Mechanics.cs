@@ -13,8 +13,11 @@ public class main_Mechanics : MonoBehaviour
     public int vida;
     public int stamina;
     public int puntaje;
+    public int balasCargadas;
+    public int balasTotales;
+    public int maxBalas;
 
-    [Header("Armas")]
+    [Header("Armas Cerca")]
     public bool tieneArma;
     public int usos;
     public int puntajePorAtaqueCerca;
