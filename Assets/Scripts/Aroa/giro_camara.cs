@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class giro_camara : MonoBehaviour
@@ -60,13 +61,12 @@ public class giro_camara : MonoBehaviour
         Quaternion rotacionBase = personaje.rotation;
 
         Quaternion rotacionHorizontalFinal =
-            rotacionBase * Quaternion.Euler(0f, rotacionHorizontal, 0f);
+        rotacionBase * Quaternion.Euler(0f, rotacionHorizontal, 0f);
 
         // El giro vertical se aplica sobre el eje local del objeto.
         transform.rotation =
-            rotacionHorizontalFinal * Quaternion.Euler(rotacionVertical, 0f, 0f);
+        rotacionHorizontalFinal * Quaternion.Euler(rotacionVertical, 0f, 0f);
     }
-
     private void OnDisable()
     {
         Cursor.lockState = CursorLockMode.None;
