@@ -5,13 +5,15 @@ using TMPro;
 
 public class recargar_balas : MonoBehaviour
 {
+    [Header("Personaje")]
+    public main_Mechanics personajeScript;
+
     [Header("UI texts")]
     public TextMeshProUGUI numBalas;
     public TextMeshProUGUI totalBalas;
 
     [Header("Configuración")]
     public float tiempoEntreBalas = 0.1f;
-    public int maxBalas = 10;
 
     private bool recargando = false;
 
@@ -21,26 +23,22 @@ public class recargar_balas : MonoBehaviour
         {
             StartCoroutine(RecargarBalas());
         }
+
+        totalBalas.text = "/ " + personajeScript.balasTotales;
+        numBalas.text = "" + personajeScript.balasCargadas;
     }
 
     IEnumerator RecargarBalas()
     {
         recargando = true;
 
-        int total = int.Parse(totalBalas.text.Replace("/ ", ""));
-        int balas = int.Parse(numBalas.text.Replace("/ ", ""));
-
         // Pasar balas una a una
-        while (balas < maxBalas && total > 0)
+        while (personajeScript.balasCargadas < personajeScript.maxBalas && personajeScript.balasTotales > 0)
         {
-            total--;
-            balas++;
+            personajeScript.balasTotales--;
+            personajeScript.balasCargadas++;
 
-            // Actualizar los textos
-            totalBalas.text = "/ " + total;
-            numBalas.text = ""+balas;
-
-            // Esperar 0.1 segundos antes de pasar la siguiente
+            // Esperar segundos antes de pasar la siguiente
             yield return new WaitForSeconds(tiempoEntreBalas);
         }
 
