@@ -13,7 +13,7 @@ public class bate_aparicion : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
-        if (personajeScript.tieneArma == true)
+        if (personajeScript.tieneArma == true && !Input.GetMouseButton(1))
         {
             bate.SetActive(true);
         }

@@ -63,6 +63,7 @@ public class main_Mechanics : MonoBehaviour
     void Update()
     {
         ZoomCamera();
+        RecolocarCamara();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             quiereSaltar = true;
@@ -271,6 +272,11 @@ public class main_Mechanics : MonoBehaviour
         if(usos <= 0){
             tieneArma = false;
         }
+    }
+
+    public void RecolocarCamara()
+    {
+
     }
 
     void OnCollisionStay(Collision collision)
