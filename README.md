@@ -9,7 +9,7 @@
 ## Errores para cambiar
 
     [X] El bate debería de desaparecer cuando apuntas, para ver mejor
-    [-] Algunas veces los zombis no mueren cuando los disparas
+    [X] Algunas veces los zombis no mueren cuando los disparas
     [-] La cámara no se adapta todavía al entorno (si se acerca detras a edificios)
 
 
