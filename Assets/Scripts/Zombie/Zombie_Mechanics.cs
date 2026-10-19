@@ -10,9 +10,26 @@ public class Zombie_Mechanics : MonoBehaviour
 
     [Header("Vida")]
     public int daño = 10;
+    public int vida = 10;
+    public int stamina = 10;
     public float tiempoEntreAtaques = 2f;
+    public int puntaje = 10;
 
     private Coroutine corrutinaAtaque;
+
+    public void Morir(int aux)
+    {
+        switch(aux){
+            case 0:
+                personajeScript.puntaje += puntaje;
+            break;
+            case 1:
+                personajeScript.puntaje += Mathf.RoundToInt(puntaje / 5f);
+            break;
+        }
+        personajeScript.stamina += stamina;
+        Destroy(gameObject);
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

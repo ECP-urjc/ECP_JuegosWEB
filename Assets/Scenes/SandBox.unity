@@ -263,8 +263,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: bala
   cantidad: 5
+  "da\xF1o": 0
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 0
   altura: 0.3
   velocidad: 10
 --- !u!65 &40492261
@@ -1475,7 +1475,7 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   vidaMaxima: 100
   vidaActual: 25
-  velocidadCuracion: 100
+  velocidadCuracion: 150
   barraVida: {fileID: 920575227}
 --- !u!114 &200149860
 MonoBehaviour:
@@ -1490,9 +1490,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   personajeScript: {fileID: 1966029237}
-  staMaxima: 100
+  staMaxima: 200
   staActual: 0
-  velocidadRecarga: 100
+  velocidadRecarga: 300
   velocidadUso: 5
   barraStamina: {fileID: 652967795}
 --- !u!1 &231613590
@@ -1580,7 +1580,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personajeScript: {fileID: 1966029237}
   "da\xF1o": 10
+  vida: 10
+  stamina: 10
   tiempoEntreAtaques: 2
+  puntaje: 10
 --- !u!23 &231613594
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2498,7 +2501,7 @@ GameObject:
   - component: {fileID: 374941220}
   - component: {fileID: 374941219}
   m_Layer: 0
-  m_Name: bala (4)
+  m_Name: stamina
   m_TagString: Traspasable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2517,7 +2520,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1256541242}
+  m_Father: {fileID: 1517545419}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &374941219
 MonoBehaviour:
@@ -2532,10 +2535,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   personajeScript: {fileID: 1966029237}
-  type: bala
-  cantidad: 5
+  type: stamina
+  cantidad: 200
+  "da\xF1o": 0
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 0
   altura: 0.3
   velocidad: 10
 --- !u!65 &374941220
@@ -2579,7 +2582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 49331011f6bdd0744987952f25318452, type: 2}
+  - {fileID: 2100000, guid: 0992791aa9eacdb4c8843a402f59a1f4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2695,8 +2698,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: vida
   cantidad: 25
+  "da\xF1o": 0
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 0
   altura: 0.3
   velocidad: 10
 --- !u!65 &463601536
@@ -3657,7 +3660,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personajeScript: {fileID: 1966029237}
   "da\xF1o": 10
+  vida: 10
+  stamina: 10
   tiempoEntreAtaques: 2
+  puntaje: 10
 --- !u!23 &621495813
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4297,8 +4303,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: bala
   cantidad: 5
+  "da\xF1o": 0
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 0
   altura: 0.3
   velocidad: 10
 --- !u!65 &747303014
@@ -4641,8 +4647,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: vida
   cantidad: 25
+  "da\xF1o": 0
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 0
   altura: 0.3
   velocidad: 10
 --- !u!65 &798811182
@@ -5235,8 +5241,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: bala
   cantidad: 5
+  "da\xF1o": 0
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 0
   altura: 0.3
   velocidad: 10
 --- !u!1 &899101149
@@ -6106,8 +6112,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: arma
   cantidad: 5
+  "da\xF1o": 10
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 2
   altura: 0.3
   velocidad: 10
 --- !u!65 &1130918068
@@ -6266,7 +6272,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personajeScript: {fileID: 1966029237}
   "da\xF1o": 10
+  vida: 10
+  stamina: 10
   tiempoEntreAtaques: 2
+  puntaje: 10
 --- !u!23 &1158700399
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6754,7 +6763,6 @@ Transform:
   - {fileID: 1553361233}
   - {fileID: 40492264}
   - {fileID: 1513277742}
-  - {fileID: 374941218}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265522458
@@ -7689,8 +7697,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: bala
   cantidad: 5
+  "da\xF1o": 0
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 0
   altura: 0.3
   velocidad: 10
 --- !u!65 &1513277739
@@ -7887,6 +7895,7 @@ Transform:
   - {fileID: 2079399391}
   - {fileID: 463601534}
   - {fileID: 798811180}
+  - {fileID: 374941218}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1520991210
@@ -8228,8 +8237,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: bala
   cantidad: 5
+  "da\xF1o": 0
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 0
   altura: 0.3
   velocidad: 10
 --- !u!65 &1553361230
@@ -8607,8 +8616,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: arma
   cantidad: 5
+  "da\xF1o": 10
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 2
   altura: 0.3
   velocidad: 10
 --- !u!65 &1701630506
@@ -8907,7 +8916,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personajeScript: {fileID: 1966029237}
   "da\xF1o": 10
+  vida: 10
+  stamina: 10
   tiempoEntreAtaques: 2
+  puntaje: 10
 --- !u!1 &1725083012
 GameObject:
   m_ObjectHideFlags: 0
@@ -9058,7 +9070,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personajeScript: {fileID: 1966029237}
   "da\xF1o": 10
+  vida: 10
+  stamina: 10
   tiempoEntreAtaques: 2
+  puntaje: 10
 --- !u!1 &1731212413
 GameObject:
   m_ObjectHideFlags: 0
@@ -9491,8 +9506,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: vida
   cantidad: 25
+  "da\xF1o": 0
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 0
   altura: 0.3
   velocidad: 10
 --- !u!65 &1827338595
@@ -9878,7 +9893,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personajeScript: {fileID: 1966029237}
   velocidad: 200
-  puntaje: 10
+  "da\xF1o": 10
+  radioDeteccion: 0.08
 --- !u!23 &1880194295
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9970,7 +9986,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
+  m_CollisionDetection: 2
 --- !u!1 &1888175403
 GameObject:
   m_ObjectHideFlags: 0
@@ -10814,7 +10830,7 @@ MonoBehaviour:
   maxBalas: 20
   tieneArma: 0
   usos: 0
-  puntajePorAtaqueCerca: 0
+  "da\xF1o": 0
   zonaAtaque: {fileID: 799117247}
   maxSpeed: 70
   acceleration: 20
@@ -11604,8 +11620,8 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   type: vida
   cantidad: 25
+  "da\xF1o": 0
   contador: {fileID: 159675210}
-  puntajePorAtaqueCerca: 0
   altura: 0.3
   velocidad: 10
 --- !u!65 &2079399393

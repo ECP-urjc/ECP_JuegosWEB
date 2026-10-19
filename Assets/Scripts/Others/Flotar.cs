@@ -9,11 +9,13 @@ public class Flotar : MonoBehaviour
     [Header("Personaje")]
     public main_Mechanics personajeScript;
 
-    [Header("Elegir 'bala', 'vida', 'arma',...")]
+    [Header("Elegir 'bala', 'vida', 'arma', 'stamina',...")]
     public string type;
     public int cantidad = 10;
+    public int daño;
+
+    [Header("Contador")]
     public TextMeshProUGUI contador;
-    public int puntajePorAtaqueCerca;
 
     [Header("Flotar Movimiento")]
     public float altura = 0.3f;
@@ -46,11 +48,16 @@ public class Flotar : MonoBehaviour
         personajeScript.vida += cantidad;
     }
 
+    public void DarStamina()
+    {
+        personajeScript.stamina += cantidad;
+    }
+
     public void DarArma()
     {
         personajeScript.usos = cantidad;
         personajeScript.tieneArma = true;
-        personajeScript.puntajePorAtaqueCerca = puntajePorAtaqueCerca;
+        personajeScript.daño = daño;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -68,6 +75,10 @@ public class Flotar : MonoBehaviour
             else if (type == "arma")
             {
                 DarArma();
+            }
+            else if (type == "stamina")
+            {
+                DarStamina();
             }
 
             gameObject.SetActive(false);
