@@ -66,7 +66,24 @@ public class giro_camara : MonoBehaviour
         // El giro vertical se aplica sobre el eje local del objeto.
         transform.rotation =
         rotacionHorizontalFinal * Quaternion.Euler(rotacionVertical, 0f, 0f);
+
+        RecolocarCamara();
     }
+
+    public void RecolocarCamara()
+    {
+        if(Input.GetMouseButtonDown(2))
+        {
+            if (Input.GetMouseButtonDown(2))
+            {
+                rotacionHorizontal = 0f;
+                rotacionVertical = 0f;
+
+                transform.rotation = personaje.rotation;
+            }
+        }
+    }
+
     private void OnDisable()
     {
         Cursor.lockState = CursorLockMode.None;

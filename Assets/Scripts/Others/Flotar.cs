@@ -38,10 +38,6 @@ public class Flotar : MonoBehaviour
 
     public void SumarBalas()
     {
-        /*int numero = int.Parse(contador.text.Replace("/ ", ""));
-        numero += cantidad;
-        contador.text = "/ " + numero.ToString();
-        gameObject.SetActive(false);*/
         personajeScript.balasTotales += cantidad;
     }
 
