@@ -13,6 +13,14 @@
     [-] La cámara no se adapta todavía al entorno (si se acerca detras a edificios)
 
 
+## Feedback Alpha
+
+    [-] Implementación de UI
+    [-] Integración de Arte 2D
+    [-] Jugar con las físicas para hacer trucos con el skate
+    [-] Pulir apuntado del personaje en la 3 persona
+
+
 ## Ideas
 
     [-] -
