@@ -20,7 +20,7 @@ public class main_Mechanics : MonoBehaviour
     [Header("Armas Cerca")]
     public bool tieneArma;
     public int usos;
-    public int puntajePorAtaqueCerca;
+    public int daño;
     public Collider zonaAtaque;
 
     [Header("Movimiento")]
@@ -262,8 +262,11 @@ public class main_Mechanics : MonoBehaviour
         {
             if (enemigo.CompareTag("Zombie"))
             {
-                Destroy(enemigo.gameObject);
-                puntaje += puntajePorAtaqueCerca;
+                Zombie_Mechanics ZombieScript = enemigo.GetComponent<Zombie_Mechanics>();
+                ZombieScript.vida -= daño;
+                if(ZombieScript.vida <= 0){
+                    ZombieScript.Morir(1);
+                }
             }
         }
 
