@@ -11,7 +11,7 @@ public class cronometro : MonoBehaviour
 
     void Update()
     {
-        tiempo += Time.deltaTime;
+        tiempo += Time.unscaledDeltaTime;
 
         int horas = Mathf.FloorToInt(tiempo / 3600f);
         int minutos = Mathf.FloorToInt((tiempo % 3600f) / 60f);

@@ -33,11 +33,17 @@ public class main_Mechanics : MonoBehaviour
     public float gravedad = 30f;
     private float velocidadVertical = 0f;
 
+    [Header("Velocidad Tiempo")]
+    public float velocidadNormal = 1f;
+    public float velocidadMinima = 0.2f;
+    public float velocidadLerp = 2f;
+    public bool isLento = false;
+
     [Header("Internas")]
     public TextMeshProUGUI texto;
     private float currentSpeed = 0f;
-    private bool estaEnSuelo;
-    private bool quiereSaltar = false;
+    public bool estaEnSuelo;
+    public bool quiereSaltar = false;
     private bool quiereAtacar = false;
 
     private Rigidbody rb;
@@ -51,6 +57,7 @@ public class main_Mechanics : MonoBehaviour
         RigidbodyConstraints.FreezeRotationZ;
 
         rb.useGravity = true;
+
     }
 
     void FixedUpdate()
@@ -66,20 +73,18 @@ public class main_Mechanics : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             quiereSaltar = true;
+            Debug.Log("salta");
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
             quiereAtacar = true;
         }
+        Relentizar();
     }
 
     public void Movement()
     {
         rb.angularVelocity = Vector3.zero;
-        
-        // =========================
-        // W / S
-        // =========================
 
         float movimiento = 0f;
 
@@ -91,10 +96,6 @@ public class main_Mechanics : MonoBehaviour
         {
             movimiento = -1f;
         }
-
-        // =========================
-        // ACELERAR / FRENAR
-        // =========================
 
         if (movimiento == -1 && estaEnSuelo)
         {
@@ -127,19 +128,11 @@ public class main_Mechanics : MonoBehaviour
             );
         }
 
-        // =========================
-        // MOVER PERSONAJE
-        // =========================
-
         rb.velocity = new Vector3(
             transform.forward.x * currentSpeed,
             rb.velocity.y,
             transform.forward.z * currentSpeed
         );
-
-        // =========================
-        // A / D
-        // =========================
 
         float rotacion = 0f;
 
@@ -152,13 +145,9 @@ public class main_Mechanics : MonoBehaviour
             rotacion = 1f;
         }
 
-        // =========================
-        // ROTAR PERSONAJE
-        // =========================
-
         if (rotacion != 0)
         {
-            float giro = rotacion * rotationSpeed * Time.fixedDeltaTime;
+            float giro = rotacion * rotationSpeed * Time.unscaledDeltaTime;
 
             Quaternion nuevaRotacion = Quaternion.Euler(
                 0f,
@@ -172,13 +161,12 @@ public class main_Mechanics : MonoBehaviour
 
     public void Jump()
     {
-            if (quiereSaltar && estaEnSuelo)
+        if (quiereSaltar && estaEnSuelo)
         {
             velocidadVertical = fuerzaSalto;
             estaEnSuelo = false;
+            quiereSaltar = false;
         }
-
-        quiereSaltar = false;
 
         // Gravedad
         if (!estaEnSuelo)
@@ -217,12 +205,12 @@ public class main_Mechanics : MonoBehaviour
             camara.transform.position = Vector3.Lerp(
                 camara.transform.position,
                 ZoomIn.transform.position,
-                15f * Time.deltaTime
+                15f * Time.unscaledDeltaTime
             );
             camara.transform.rotation = Quaternion.Lerp(
                 camara.transform.rotation,
                 ZoomIn.transform.rotation,
-                15f * Time.deltaTime
+                15f * Time.unscaledDeltaTime
             );
             mira.SetActive(true);
         }
@@ -232,12 +220,12 @@ public class main_Mechanics : MonoBehaviour
             camara.transform.position = Vector3.Lerp(
                 camara.transform.position,
                 ZoomOut.transform.position,
-                15f * Time.deltaTime
+                15f * Time.unscaledDeltaTime
             );
             camara.transform.rotation = Quaternion.Lerp(
                 camara.transform.rotation,
                 ZoomOut.transform.rotation,
-                15f * Time.deltaTime
+                15f * Time.unscaledDeltaTime
             );
             mira.SetActive(false);
         }
@@ -274,6 +262,29 @@ public class main_Mechanics : MonoBehaviour
         if(usos <= 0){
             tieneArma = false;
         }
+    }
+
+    public void Relentizar()
+    {
+        float velocidadObjetivo;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isLento = true;
+            velocidadObjetivo = velocidadMinima;
+        }
+        else
+        {
+            isLento = false;
+            velocidadObjetivo = velocidadNormal;
+        }
+
+        Time.timeScale = Mathf.Lerp(
+            Time.timeScale,
+            velocidadObjetivo,
+            velocidadLerp * Time.unscaledDeltaTime
+        );
+
     }
 
     void OnCollisionStay(Collision collision)
