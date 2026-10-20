@@ -10839,7 +10839,13 @@ MonoBehaviour:
   rotationSpeed: 90
   fuerzaSalto: 20
   gravedad: 30
+  velocidadNormal: 1
+  velocidadMinima: 0.4
+  velocidadLerp: 10
+  isLento: 0
   texto: {fileID: 1451102621}
+  estaEnSuelo: 0
+  quiereSaltar: 0
 --- !u!54 &1966029238
 Rigidbody:
   m_ObjectHideFlags: 0
