@@ -32,6 +32,7 @@ public class main_Mechanics : MonoBehaviour
     public float fuerzaSalto = 12f;
     public float gravedad = 30f;
     private float velocidadVertical = 0f;
+    public bool enPausa = false;
 
     [Header("Velocidad Tiempo")]
     public float velocidadNormal = 1f;
@@ -71,9 +72,12 @@ public class main_Mechanics : MonoBehaviour
 
     void Update()
     {
-        JumpDetector();
         Relentizar();
-        ZoomCamera();
+        if(!enPausa)
+        {
+            JumpDetector();
+            ZoomCamera();
+        }
     }
 
     public void Movement()
@@ -139,32 +143,10 @@ public class main_Mechanics : MonoBehaviour
         }   
     }
 
-    /*public void Girar()
-    {
-        float rotacion = 0f;
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            rotacion = -1f;
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            rotacion = 1f;
-        }
-
-        if (rotacion != 0)
-        {
-            float giro = rotacion * rotationSpeed * Time.deltaTime;
-
-            transform.Rotate(0f, giro, 0f);
-        }
-    }*/
-
     public void JumpDetector()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("salto");
             quiereSaltar = true;
         }
         if (Input.GetKeyDown(KeyCode.F))
@@ -298,11 +280,18 @@ public class main_Mechanics : MonoBehaviour
             velocidadObjetivo = velocidadNormal;
         }
 
-        Time.timeScale = Mathf.Lerp(
-            Time.timeScale,
-            velocidadObjetivo,
-            velocidadLerp * Time.unscaledDeltaTime
-        );
+        if(!enPausa)
+        {
+            Time.timeScale = Mathf.Lerp(
+                Time.timeScale,
+                velocidadObjetivo,
+                velocidadLerp * Time.unscaledDeltaTime
+            );
+        }
+        else
+        {
+            Time.timeScale = 0;
+        }
 
         Time.fixedDeltaTime = 0.02f * Mathf.Max(Time.timeScale, 0.2f);
     }

@@ -5,6 +5,10 @@ using TMPro;
 
 public class cronometro : MonoBehaviour
 {
+    [Header("Personaje")]
+    public main_Mechanics PersonajeScript;
+
+    [Header("Cronometros")]
     public TextMeshProUGUI CronometroTotal;
     public TextMeshProUGUI CronometroEntreTorres;
 
@@ -12,6 +16,10 @@ public class cronometro : MonoBehaviour
 
     void Update()
     {
+        if(PersonajeScript.enPausa)
+        {
+            return;
+        }
         tiempo += Time.unscaledDeltaTime;
 
         int horas = Mathf.FloorToInt(tiempo / 3600f);

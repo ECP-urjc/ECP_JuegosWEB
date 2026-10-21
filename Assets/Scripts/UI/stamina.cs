@@ -23,6 +23,10 @@ public class stamina : MonoBehaviour
 
     void Update()
     {
+        if(personajeScript.enPausa)
+        {
+            return;
+        }
         staActual = personajeScript.stamina;
         barraStamina.value = Mathf.MoveTowards(
             barraStamina.value,

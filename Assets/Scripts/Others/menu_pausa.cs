@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class menu_pausa : MonoBehaviour
 {
+    [Header("Personaje")]
+    public main_Mechanics PersonajeScript;
+
+    [Header("otros")]
     public GameObject menuPausa;
     private bool pausado = false;
     void Start()
@@ -29,13 +33,13 @@ public class menu_pausa : MonoBehaviour
 
         if (pausado)
         {
-            Time.timeScale = 0f;
+            PersonajeScript.enPausa = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
         else
         {
-            Time.timeScale = 1f;
+            PersonajeScript.enPausa = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }

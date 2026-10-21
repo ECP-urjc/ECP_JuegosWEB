@@ -3317,6 +3317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c44e6ec60fd32349aa18bff4c86e3d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PersonajeScript: {fileID: 1966029237}
   menuPausa: {fileID: 499637602}
 --- !u!1 &565948961
 GameObject:
@@ -10950,6 +10951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796638e9779364346a9a5a3d7302ab46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PersonajeScript: {fileID: 1966029237}
   CronometroTotal: {fileID: 43075244}
   CronometroEntreTorres: {fileID: 288924334}
 --- !u!1 &1966029232
@@ -11101,6 +11103,7 @@ MonoBehaviour:
   rotationSpeed: 90
   fuerzaSalto: 20
   gravedad: 30
+  enPausa: 0
   velocidadNormal: 1
   velocidadMinima: 0.2
   velocidadLerp: 100
