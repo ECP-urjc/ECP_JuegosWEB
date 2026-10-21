@@ -74,7 +74,6 @@ public class main_Mechanics : MonoBehaviour
         JumpDetector();
         Relentizar();
         ZoomCamera();
-        Girar();
     }
 
     public void Movement()
@@ -128,9 +127,19 @@ public class main_Mechanics : MonoBehaviour
             rb.velocity.y,
             transform.forward.z * currentSpeed
         );
+
+        float rotacion = 0f;
+        if (Input.GetKey(KeyCode.A)) rotacion = -1f;
+        else if (Input.GetKey(KeyCode.D)) rotacion = 1f;
+
+        if (rotacion != 0)
+        {
+            float giro = rotacion * rotationSpeed * Time.fixedDeltaTime;
+            rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, giro, 0f));
+        }   
     }
 
-    public void Girar()
+    /*public void Girar()
     {
         float rotacion = 0f;
 
@@ -149,7 +158,7 @@ public class main_Mechanics : MonoBehaviour
 
             transform.Rotate(0f, giro, 0f);
         }
-    }
+    }*/
 
     public void JumpDetector()
     {
@@ -295,7 +304,7 @@ public class main_Mechanics : MonoBehaviour
             velocidadLerp * Time.unscaledDeltaTime
         );
 
-        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        Time.fixedDeltaTime = 0.02f * Mathf.Max(Time.timeScale, 0.2f);
     }
 
     IEnumerator RestarStamina()
