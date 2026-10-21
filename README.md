@@ -10,7 +10,6 @@
 
     [X] El bate debería de desaparecer cuando apuntas, para ver mejor
     [X] Algunas veces los zombis no mueren cuando los disparas
-    [-] A veces las balas se quedan estaticas al inicio (puramente visual)
     [-] La cámara no se adapta todavía al entorno (si se acerca detras a edificios)
 
 
