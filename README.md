@@ -4,7 +4,7 @@
     [X] Pulsar la rueda del raton para centar al personaje
     [X] Si mantienes pulsado el shift se relentiza el tiempo (carga)
     [X] Agarras carga de matar zombies
-    [] Sistema de combos
+    [-] Sistema de combos
 
 
 ## Errores para cambiar
