@@ -2,7 +2,7 @@
 
     [-] posible salto en paredes (Combos)
     [X] Pulsar la rueda del raton para centar al personaje
-    [-] Si mantienes pulsado el shift se relentiza el tiempo (carga)
+    [X] Si mantienes pulsado el shift se relentiza el tiempo (carga)
     [X] Agarras carga de matar zombies
 
 
