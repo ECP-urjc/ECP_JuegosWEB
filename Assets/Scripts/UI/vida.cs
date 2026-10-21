@@ -22,6 +22,10 @@ public class vida : MonoBehaviour
 
     void Update()
     {
+        if(personajeScript.enPausa)
+        {
+            return;
+        }
         vidaActual = personajeScript.vida;
         barraVida.value = Mathf.MoveTowards(
             barraVida.value,
@@ -32,6 +36,10 @@ public class vida : MonoBehaviour
 
     public void RecibirDaño(int daño)
     {
+        if(personajeScript.enPausa)
+        {
+            return;
+        }
         vidaActual -= daño;
 
         if (vidaActual < 0)

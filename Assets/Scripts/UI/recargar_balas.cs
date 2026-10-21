@@ -19,6 +19,11 @@ public class recargar_balas : MonoBehaviour
 
     void Update()
     {
+        if(personajeScript.enPausa)
+        {
+            return;
+        }
+        
         if (Input.GetKeyDown(KeyCode.R) && !recargando)
         {
             StartCoroutine(RecargarBalas());

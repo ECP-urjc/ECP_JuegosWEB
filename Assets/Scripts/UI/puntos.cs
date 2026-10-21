@@ -18,6 +18,10 @@ public class puntos : MonoBehaviour
 
     void Update()
     {
+        if(personajeScript.enPausa){
+            return;
+        }
+        
         if (puntajeActual == personajeScript.puntaje)
         {
             if (corrutinaPuntaje != null)
