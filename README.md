@@ -24,7 +24,7 @@
 
 ## Ideas
 
-    [-] -
+    [-] Efecto visual para cuando se relentiza el tiempo
     [-] -
     [-] -
 
