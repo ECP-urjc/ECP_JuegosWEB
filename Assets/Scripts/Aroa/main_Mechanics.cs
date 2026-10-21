@@ -37,14 +37,16 @@ public class main_Mechanics : MonoBehaviour
     public float velocidadNormal = 1f;
     public float velocidadMinima = 0.2f;
     public float velocidadLerp = 2f;
-    public bool isLento = false;
+    public float segundosPorPunto = 0.1f;
 
     [Header("Internas")]
     public TextMeshProUGUI texto;
     private float currentSpeed = 0f;
-    public bool estaEnSuelo;
-    public bool quiereSaltar = false;
+    private bool estaEnSuelo;
+    private bool quiereSaltar = false;
     private bool quiereAtacar = false;
+    private bool isLento = false;
+    private bool restandoStamina = false;
 
     private Rigidbody rb;
 
@@ -69,17 +71,10 @@ public class main_Mechanics : MonoBehaviour
 
     void Update()
     {
-        ZoomCamera();
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            quiereSaltar = true;
-            Debug.Log("salta");
-        }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            quiereAtacar = true;
-        }
+        JumpDetector();
         Relentizar();
+        ZoomCamera();
+        Girar();
     }
 
     public void Movement()
@@ -97,7 +92,7 @@ public class main_Mechanics : MonoBehaviour
             movimiento = -1f;
         }
 
-        if (movimiento == -1 && estaEnSuelo)
+        if (movimiento == -1)
         {
             // Frenar doble de rápido
             currentSpeed = Mathf.MoveTowards(
@@ -133,7 +128,10 @@ public class main_Mechanics : MonoBehaviour
             rb.velocity.y,
             transform.forward.z * currentSpeed
         );
+    }
 
+    public void Girar()
+    {
         float rotacion = 0f;
 
         if (Input.GetKey(KeyCode.A))
@@ -147,15 +145,22 @@ public class main_Mechanics : MonoBehaviour
 
         if (rotacion != 0)
         {
-            float giro = rotacion * rotationSpeed * Time.unscaledDeltaTime;
+            float giro = rotacion * rotationSpeed * Time.deltaTime;
 
-            Quaternion nuevaRotacion = Quaternion.Euler(
-                0f,
-                giro,
-                0f
-            );
+            transform.Rotate(0f, giro, 0f);
+        }
+    }
 
-            rb.MoveRotation(rb.rotation * nuevaRotacion);
+    public void JumpDetector()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("salto");
+            quiereSaltar = true;
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            quiereAtacar = true;
         }
     }
 
@@ -181,9 +186,11 @@ public class main_Mechanics : MonoBehaviour
             }
         }
 
-        Vector3 velocidad = rb.velocity;
-        velocidad.y = velocidadVertical;
-        rb.velocity = velocidad;
+        rb.velocity = new Vector3(
+            rb.velocity.x,
+            velocidadVertical,
+            rb.velocity.z
+        );
     }
 
     public void ZoomCamera()
@@ -268,10 +275,13 @@ public class main_Mechanics : MonoBehaviour
     {
         float velocidadObjetivo;
 
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
         {
             isLento = true;
             velocidadObjetivo = velocidadMinima;
+            if(!restandoStamina){
+                StartCoroutine(RestarStamina());
+            }
         }
         else
         {
@@ -285,6 +295,20 @@ public class main_Mechanics : MonoBehaviour
             velocidadLerp * Time.unscaledDeltaTime
         );
 
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+    }
+
+    IEnumerator RestarStamina()
+    {
+        restandoStamina = true;
+
+        while (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
+        {
+            stamina--;
+            yield return new WaitForSecondsRealtime(segundosPorPunto);
+        }
+
+        restandoStamina = false;
     }
 
     void OnCollisionStay(Collision collision)
@@ -292,6 +316,7 @@ public class main_Mechanics : MonoBehaviour
         if (collision.gameObject.CompareTag("Suelo"))
         {
             estaEnSuelo = true;
+            quiereSaltar = false;
         }
     }
 
@@ -300,6 +325,7 @@ public class main_Mechanics : MonoBehaviour
         if (collision.gameObject.CompareTag("Suelo"))
         {
             estaEnSuelo = true;
+            quiereSaltar = false;
         }
     }
 

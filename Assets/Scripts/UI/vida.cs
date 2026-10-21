@@ -26,7 +26,7 @@ public class vida : MonoBehaviour
         barraVida.value = Mathf.MoveTowards(
             barraVida.value,
             vidaActual,
-            velocidadCuracion * Time.deltaTime
+            velocidadCuracion * Time.unscaledDeltaTime
         );
     }
 
