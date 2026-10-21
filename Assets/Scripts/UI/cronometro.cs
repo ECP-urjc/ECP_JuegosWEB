@@ -5,7 +5,8 @@ using TMPro;
 
 public class cronometro : MonoBehaviour
 {
-    public TextMeshProUGUI textoCronometro;
+    public TextMeshProUGUI CronometroTotal;
+    public TextMeshProUGUI CronometroEntreTorres;
 
     private float tiempo = 0f;
 
@@ -21,7 +22,7 @@ public class cronometro : MonoBehaviour
         if (horas > 0)
         {
             // HH:MM:SS.CC
-            textoCronometro.text = string.Format(
+            CronometroTotal.text = string.Format(
                 "{0:00}:{1:00}:{2:00}.{3:00}",
                 horas,
                 minutos,
@@ -32,7 +33,7 @@ public class cronometro : MonoBehaviour
         else
         {
             // MM:SS.CC
-            textoCronometro.text = string.Format(
+            CronometroTotal.text = string.Format(
                 "{0:00}:{1:00}.{2:00}",
                 minutos,
                 segundos,

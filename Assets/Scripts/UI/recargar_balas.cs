@@ -39,7 +39,7 @@ public class recargar_balas : MonoBehaviour
             personajeScript.balasCargadas++;
 
             // Esperar segundos antes de pasar la siguiente
-            yield return new WaitForSeconds(tiempoEntreBalas);
+            yield return new WaitForSecondsRealtime(tiempoEntreBalas);
         }
 
         recargando = false;

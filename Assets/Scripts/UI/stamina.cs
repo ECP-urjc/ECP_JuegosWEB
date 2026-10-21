@@ -27,7 +27,7 @@ public class stamina : MonoBehaviour
         barraStamina.value = Mathf.MoveTowards(
             barraStamina.value,
             staActual,
-            velocidadRecarga * Time.deltaTime
+            velocidadRecarga * Time.unscaledDeltaTime
         );
     } 
 }
