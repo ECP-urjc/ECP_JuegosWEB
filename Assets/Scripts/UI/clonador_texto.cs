@@ -17,5 +17,11 @@ public class clonador_texto : MonoBehaviour
     void Update()
     {
         textoCopia.text = textoOriginal.text;
+        textoCopia.color = new Color(
+            textoCopia.color.r,
+            textoCopia.color.g,
+            textoCopia.color.b,
+            textoOriginal.color.a
+        );
     }
 }
