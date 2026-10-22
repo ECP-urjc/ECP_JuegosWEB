@@ -13,6 +13,9 @@ public class main_Mechanics : MonoBehaviour
     public int vida;
     public int stamina;
     public int puntaje;
+    public int numCombo;
+
+    [Header("Balas")]
     public int balasCargadas;
     public int balasTotales;
     public int maxBalas;
