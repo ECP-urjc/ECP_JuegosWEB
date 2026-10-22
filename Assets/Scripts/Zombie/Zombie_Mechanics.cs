@@ -21,10 +21,10 @@ public class Zombie_Mechanics : MonoBehaviour
     {
         switch(aux){
             case 0:
-                personajeScript.puntaje += puntaje;
+                personajeScript.puntaje += puntaje * personajeScript.numCombo;
             break;
             case 1:
-                personajeScript.puntaje += Mathf.RoundToInt(puntaje / 5f);
+                personajeScript.puntaje += Mathf.RoundToInt(puntaje / 5f) * personajeScript.numCombo;
             break;
         }
         personajeScript.stamina += stamina;
