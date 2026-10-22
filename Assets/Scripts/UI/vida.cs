@@ -32,6 +32,15 @@ public class vida : MonoBehaviour
             vidaActual,
             velocidadCuracion * Time.unscaledDeltaTime
         );
+
+        if(personajeScript.vida <= 0)
+        {
+            personajeScript.vida = 0;
+        }
+        else if(personajeScript.vida >= vidaMaxima)
+        {
+            personajeScript.vida = vidaMaxima;
+        }
     }
 
     public void RecibirDaño(int daño)

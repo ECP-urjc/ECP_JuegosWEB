@@ -46,7 +46,6 @@ public class main_Mechanics : MonoBehaviour
     private bool estaEnSuelo;
     private bool quiereSaltar = false;
     private bool quiereAtacar = false;
-    private bool isLento = false;
     private bool restandoStamina = false;
 
     private Rigidbody rb;
@@ -268,7 +267,6 @@ public class main_Mechanics : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftShift) && stamina > 0)
         {
-            isLento = true;
             velocidadObjetivo = velocidadMinima;
             if(!restandoStamina){
                 StartCoroutine(RestarStamina());
@@ -276,7 +274,6 @@ public class main_Mechanics : MonoBehaviour
         }
         else
         {
-            isLento = false;
             velocidadObjetivo = velocidadNormal;
         }
 
