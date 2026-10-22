@@ -7,11 +7,11 @@
     [-] Sistema de combos
 
 
-## Errores para cambiar
+## Bugs y Errores
 
     [X] El bate debería de desaparecer cuando apuntas, para ver mejor
     [X] Algunas veces los zombis no mueren cuando los disparas
-    [-] Las balas algunas veces se buggean, hay q arreglarlo
+    [-] Las balas algunas veces se quedan al inicio antes de salir
     [X] Arreglas la cantidad que se consigue de stamina
     [-] La cámara no se adapta todavía al entorno (si se acerca detras a edificios)
 
