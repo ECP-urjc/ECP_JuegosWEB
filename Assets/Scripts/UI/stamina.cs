@@ -33,5 +33,14 @@ public class stamina : MonoBehaviour
             staActual,
             velocidadRecarga * Time.unscaledDeltaTime
         );
+
+        if(personajeScript.stamina <= 0)
+        {
+            personajeScript.stamina = 0;
+        }
+        else if(personajeScript.stamina >= staMaxima)
+        {
+            personajeScript.stamina = staMaxima;
+        }
     } 
 }
