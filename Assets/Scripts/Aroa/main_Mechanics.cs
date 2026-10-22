@@ -14,6 +14,8 @@ public class main_Mechanics : MonoBehaviour
     public int stamina;
     public int puntaje;
     public int numCombo;
+    public string razonCombo;
+    public int curasEsparcidas;
 
     [Header("Balas")]
     public int balasCargadas;
@@ -246,6 +248,8 @@ public class main_Mechanics : MonoBehaviour
             zonaAtaque.transform.rotation
         );
 
+        bool mata = false;
+
         foreach (Collider enemigo in enemigos)
         {
             if (enemigo.CompareTag("Zombie"))
@@ -254,8 +258,15 @@ public class main_Mechanics : MonoBehaviour
                 ZombieScript.vida -= daño;
                 if(ZombieScript.vida <= 0){
                     ZombieScript.Morir(1);
+                    mata = true;
                 }
             }
+        }
+
+        if(mata)
+        {
+            numCombo++;
+            razonCombo = "Bate";
         }
 
         usos--;
