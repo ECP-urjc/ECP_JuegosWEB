@@ -1,4 +1,4 @@
-# Principal para implementar en el prototipo
+# Entrega BETA - 15 Noviembre
 
 ## Principal para implementar en el prototipo
 
