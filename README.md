@@ -1,3 +1,5 @@
+### Principal para implementar en el prototipo
+
 ## Principal para implementar en el prototipo
 
     [-] posible salto en paredes (Combos)
