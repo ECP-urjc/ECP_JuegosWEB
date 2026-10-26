@@ -1,4 +1,4 @@
-### Principal para implementar en el prototipo
+# Principal para implementar en el prototipo
 
 ## Principal para implementar en el prototipo
 
