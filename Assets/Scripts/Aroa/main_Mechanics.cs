@@ -14,8 +14,12 @@ public class main_Mechanics : MonoBehaviour
     public int stamina;
     public int puntaje;
     public int numCombo;
-    public string razonCombo;
     public int curasEsparcidas;
+
+    [Header("Atributos internos")]
+    public int perdidaStaminaPorSalto;
+    public string razonCombo;
+    public int puntosPorSaltoEnPared;
 
     [Header("Balas")]
     public int balasCargadas;
@@ -39,6 +43,16 @@ public class main_Mechanics : MonoBehaviour
     private float velocidadVertical = 0f;
     public bool enPausa = false;
 
+    [Header("Salto de Pared")]
+    public float fuerzaSaltoPared = 15f;
+    private bool tocandoPared = false;
+    private Vector3 normalPared;
+    private Vector3 velocidadPared = Vector3.zero;
+    public float velocidadAlineacion = 360f;
+    public float suavizadoAlineacion = 8f;
+    private bool alineando = false;
+    private float anguloObjetivoY;
+
     [Header("Velocidad Tiempo")]
     public float velocidadNormal = 1f;
     public float velocidadMinima = 0.2f;
@@ -61,7 +75,7 @@ public class main_Mechanics : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         rb.constraints = RigidbodyConstraints.FreezeRotationX |
-        RigidbodyConstraints.FreezeRotationZ;
+        RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 
         rb.useGravity = true;
 
@@ -130,10 +144,21 @@ public class main_Mechanics : MonoBehaviour
             );
         }
 
+        Vector3 velHorizontal = transform.forward * currentSpeed;
+
+        if (velocidadPared != Vector3.zero)
+        {
+            velocidadPared = Vector3.MoveTowards(
+                velocidadPared,
+                Vector3.zero,
+                deceleration * Time.fixedDeltaTime
+            );
+        }
+
         rb.velocity = new Vector3(
-            transform.forward.x * currentSpeed,
+            velHorizontal.x + velocidadPared.x,
             rb.velocity.y,
-            transform.forward.z * currentSpeed
+            velHorizontal.z + velocidadPared.z
         );
 
         float rotacion = 0f;
@@ -142,9 +167,26 @@ public class main_Mechanics : MonoBehaviour
 
         if (rotacion != 0)
         {
-            float giro = rotacion * rotationSpeed * Time.fixedDeltaTime;
-            rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, giro, 0f));
-        }   
+            // Si el jugador gira manualmente, se cancela la alineación
+            alineando = false;
+            transform.Rotate(0f, rotacion * rotationSpeed * Time.fixedDeltaTime, 0f);
+        }
+        else if (alineando)
+        {
+            // Suavizado exponencial: avanza una fracción de lo que falta cada frame
+            float nuevoY = Mathf.LerpAngle(
+                transform.eulerAngles.y,
+                anguloObjetivoY,
+                1f - Mathf.Exp(-suavizadoAlineacion * Time.fixedDeltaTime)
+            );
+            transform.rotation = Quaternion.Euler(0f, nuevoY, 0f);
+
+            if (Mathf.Abs(Mathf.DeltaAngle(nuevoY, anguloObjetivoY)) < 0.2f)
+            {
+                transform.rotation = Quaternion.Euler(0f, anguloObjetivoY, 0f);
+                alineando = false;
+            }
+        }
     }
 
     public void JumpDetector()
@@ -161,11 +203,32 @@ public class main_Mechanics : MonoBehaviour
 
     public void Jump()
     {
+        if (quiereSaltar && !estaEnSuelo && !tocandoPared)
+        {
+            quiereSaltar = false;
+        }
+
         if (quiereSaltar && estaEnSuelo)
         {
             velocidadVertical = fuerzaSalto;
             estaEnSuelo = false;
             quiereSaltar = false;
+        }
+        else if (quiereSaltar && tocandoPared && stamina >= perdidaStaminaPorSalto)
+        {
+            velocidadVertical = fuerzaSalto * 1.5f;
+
+            // Velocidad hacia la normal de la pared, se da una sola vez
+            velocidadPared = normalPared * fuerzaSaltoPared;
+
+            tocandoPared = false;
+            quiereSaltar = false;
+
+            stamina -= perdidaStaminaPorSalto;
+
+            puntaje += puntosPorSaltoEnPared * (numCombo + 1);
+            numCombo++;
+            razonCombo = "Salto en Pared";
         }
 
         // Gravedad
@@ -186,6 +249,24 @@ public class main_Mechanics : MonoBehaviour
             velocidadVertical,
             rb.velocity.z
         );
+    }
+
+    void IniciarAlineacion()
+    {
+        // Dirección hacia la pared (la normal apunta de la pared hacia ti)
+        Vector3 haciaPared = -normalPared;
+
+        // Ángulo de la pared respecto a tu frente (-180 a 180)
+        float anguloPared = Vector3.SignedAngle(transform.forward, haciaPared, Vector3.up);
+
+        // Lado más cercano: 0 = frente, 90 = derecha, 180 = detrás, -90 = izquierda
+        float ladoMasCercano = Mathf.Round(anguloPared / 90f) * 90f;
+
+        // Giro necesario para que la pared quede exactamente en ese lado
+        float giroNecesario = anguloPared - ladoMasCercano;
+
+        anguloObjetivoY = transform.eulerAngles.y + giroNecesario;
+        alineando = true;
     }
 
     public void ZoomCamera()
@@ -324,8 +405,22 @@ public class main_Mechanics : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Suelo"))
         {
-            estaEnSuelo = true;
-            quiereSaltar = false;
+            foreach (ContactPoint contacto in collision.contacts)
+            {
+                // Si la normal apunta hacia arriba, el suelo está debajo
+                if (contacto.normal.y > 0.7f)
+                {
+                    estaEnSuelo = true;
+                    return;
+                }
+            }
+            // Colisiona con "Suelo" pero no por debajo (pared, costado)
+            estaEnSuelo = false;
+        }
+
+        if (collision.gameObject.CompareTag("Pared"))
+        {
+            ProcesarPared(collision);
         }
     }
 
@@ -333,8 +428,23 @@ public class main_Mechanics : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Suelo"))
         {
-            estaEnSuelo = true;
-            quiereSaltar = false;
+            foreach (ContactPoint contacto in collision.contacts)
+            {
+                if (contacto.normal.y > 0.7f)
+                {
+                    estaEnSuelo = true;
+                    return;
+                }
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Pared"))
+        {
+            ProcesarPared(collision);
+            if (tocandoPared)
+            {
+                IniciarAlineacion();
+            }
         }
     }
 
@@ -344,5 +454,40 @@ public class main_Mechanics : MonoBehaviour
         {
             estaEnSuelo = false;
         }
+
+        if (collision.gameObject.CompareTag("Pared"))
+        {
+            tocandoPared = false;
+        }
+    }
+
+    void ProcesarPared(Collision collision)
+    {
+        Vector3 suma = Vector3.zero;
+        int contactosLaterales = 0;
+
+        foreach (ContactPoint contacto in collision.contacts)
+        {
+            if (Mathf.Abs(contacto.normal.y) < 0.3f)
+            {
+                suma += new Vector3(contacto.normal.x, 0f, contacto.normal.z);
+                contactosLaterales++;
+            }
+        }
+
+        if (contactosLaterales == 0) return;
+
+        Vector3 normal = suma.normalized;
+
+        // Asegurar que la normal apunta de la pared hacia el personaje
+        Vector3 haciaPersonaje = transform.position - collision.GetContact(0).point;
+        haciaPersonaje.y = 0f;
+        if (Vector3.Dot(normal, haciaPersonaje) < 0f)
+        {
+            normal = -normal;
+        }
+
+        normalPared = normal;
+        tocandoPared = true;
     }
 }

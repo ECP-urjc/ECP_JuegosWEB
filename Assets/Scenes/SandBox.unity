@@ -330,6 +330,37 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 5
   m_TargetDisplay: 0
+--- !u!1 &35960342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 35960343}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &35960343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35960342}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -121.273895, y: -562.9374, z: 518.2145}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &40492259
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +634,7 @@ GameObject:
   - component: {fileID: 66865608}
   m_Layer: 0
   m_Name: Edificio
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1194,7 +1225,7 @@ GameObject:
   - component: {fileID: 114807294}
   m_Layer: 0
   m_Name: wall
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1451,6 +1482,7 @@ Transform:
   - {fileID: 808577092}
   - {fileID: 792508075}
   - {fileID: 1849664014}
+  - {fileID: 1425959084}
   - {fileID: 317876378}
   - {fileID: 1090295562}
   - {fileID: 2015162824}
@@ -2204,7 +2236,7 @@ GameObject:
   - component: {fileID: 317876379}
   m_Layer: 0
   m_Name: Edificio (5)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3066,7 +3098,7 @@ GameObject:
   - component: {fileID: 474282006}
   m_Layer: 0
   m_Name: Edificio (8)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3250,7 +3282,7 @@ GameObject:
   - component: {fileID: 531166424}
   m_Layer: 0
   m_Name: wall (3)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4786,7 +4818,7 @@ GameObject:
   - component: {fileID: 792508076}
   m_Layer: 0
   m_Name: Edificio (1)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5069,7 +5101,7 @@ GameObject:
   - component: {fileID: 808577093}
   m_Layer: 0
   m_Name: wall (4)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5539,7 +5571,7 @@ GameObject:
   - component: {fileID: 899101151}
   m_Layer: 0
   m_Name: wall (1)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6251,7 +6283,7 @@ GameObject:
   - component: {fileID: 1090295563}
   m_Layer: 0
   m_Name: Edificio (9)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6635,7 +6667,7 @@ GameObject:
   - component: {fileID: 1165631278}
   m_Layer: 0
   m_Name: Edificio (6)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7625,7 +7657,7 @@ GameObject:
   - component: {fileID: 1314895256}
   m_Layer: 0
   m_Name: wall (5)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7864,7 +7896,7 @@ GameObject:
   - component: {fileID: 1349699165}
   m_Layer: 0
   m_Name: Edificio (3)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8060,6 +8092,111 @@ MonoBehaviour:
   personajeScript: {fileID: 1966029237}
   texto: 'E: Interactuar'
   puntaje: 300
+--- !u!1 &1425959083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425959084}
+  - component: {fileID: 1425959087}
+  - component: {fileID: 1425959086}
+  - component: {fileID: 1425959085}
+  m_Layer: 0
+  m_Name: wallJump
+  m_TagString: Pared
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1425959084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425959083}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1133.3, y: -7.9, z: 344.5}
+  m_LocalScale: {x: 300, y: 15, z: 5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 163187620}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1425959085
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425959083}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1425959086
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425959083}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 4a6ec51d537c5084e899f3d10aa781ec, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1425959087
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425959083}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1451102620
 GameObject:
   m_ObjectHideFlags: 0
@@ -8779,7 +8916,7 @@ GameObject:
   - component: {fileID: 1545377630}
   m_Layer: 0
   m_Name: Edificio (7)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9009,7 +9146,7 @@ GameObject:
   - component: {fileID: 1577163702}
   m_Layer: 0
   m_Name: Edificio (4)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11132,7 +11269,7 @@ GameObject:
   - component: {fileID: 1888175405}
   m_Layer: 0
   m_Name: wall (2)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11402,7 +11539,7 @@ GameObject:
   - component: {fileID: 1946763076}
   m_Layer: 0
   m_Name: Edificio (2)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11882,7 +12019,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966029232}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 18c97a800cd04c64ebc2f19af47317cc, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -11987,8 +12124,10 @@ MonoBehaviour:
   stamina: 0
   puntaje: 0
   numCombo: 0
-  razonCombo: Disparo
   curasEsparcidas: 0
+  perdidaStaminaPorSalto: 10
+  razonCombo: Disparo
+  puntosPorSaltoEnPared: 5
   balasCargadas: 0
   balasTotales: 0
   maxBalas: 20
@@ -12004,6 +12143,9 @@ MonoBehaviour:
   fuerzaSalto: 20
   gravedad: 30
   enPausa: 0
+  fuerzaSaltoPared: 100
+  velocidadAlineacion: 360
+  suavizadoAlineacion: 8
   velocidadNormal: 1
   velocidadMinima: 0.2
   velocidadLerp: 100
@@ -12034,7 +12176,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 112
+  m_Constraints: 126
   m_CollisionDetection: 2
 --- !u!114 &1966029239
 MonoBehaviour:
@@ -12543,7 +12685,7 @@ GameObject:
   - component: {fileID: 2015162825}
   m_Layer: 0
   m_Name: Edificio (10)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12648,7 +12790,7 @@ GameObject:
   - component: {fileID: 2043122646}
   m_Layer: 0
   m_Name: wall (6)
-  m_TagString: Untagged
+  m_TagString: Pared
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12916,3 +13058,4 @@ SceneRoots:
   - {fileID: 1158700401}
   - {fileID: 781514840}
   - {fileID: 90173996}
+  - {fileID: 35960343}

@@ -1,4 +1,4 @@
-
+using System.Linq;
 using UnityEngine;
 
 public class bala : MonoBehaviour
@@ -11,13 +11,7 @@ public class bala : MonoBehaviour
     public int daño = 10;
     public float radioDeteccion = 0.08f;
 
-    private Vector3 posicionAnterior;
     private bool impacto = false;
-
-    void Start()
-    {
-        posicionAnterior = transform.position;
-    }
 
     void Update()
     {
@@ -26,34 +20,42 @@ public class bala : MonoBehaviour
         float distancia = velocidad * Time.deltaTime;
         Vector3 direccion = transform.forward;
 
-        // Comprobar todo el recorrido de la bala
-        if (Physics.SphereCast(
-            posicionAnterior,
+        RaycastHit[] hits = Physics.SphereCastAll(
+            transform.position,
             radioDeteccion,
             direccion,
-            out RaycastHit hit,
-            distancia))
+            distancia,
+            ~0,
+            QueryTriggerInteraction.Ignore
+        );
+
+        // Ordenar de más cerca a más lejos
+        System.Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
+
+        foreach (RaycastHit hit in hits)
         {
+            if (EsIgnorable(hit.collider)) continue;
+
             ProcesarImpacto(hit.collider);
             return;
         }
 
         transform.position += direccion * distancia;
-        posicionAnterior = transform.position;
+    }
+
+    bool EsIgnorable(Collider other)
+    {
+        return other.CompareTag("Traspasable") ||
+               other.CompareTag("Player") ||
+               other.CompareTag("Trigger");
     }
 
     void ProcesarImpacto(Collider other)
     {
-        if (other.CompareTag("Traspasable") ||
-            other.CompareTag("Player") ||
-            other.CompareTag("Trigger"))
-        {
-            return;
-        }
+        impacto = true;
 
         // Buscar el zombie aunque el collider esté en un hijo
         Transform zombie = other.transform;
-
         while (zombie != null && !zombie.CompareTag("Zombie"))
         {
             zombie = zombie.parent;
@@ -63,15 +65,12 @@ public class bala : MonoBehaviour
         {
             Zombie_Mechanics ZombieScript = zombie.GetComponent<Zombie_Mechanics>();
             ZombieScript.vida -= daño;
-            if(ZombieScript.vida <= 0){
+            if (ZombieScript.vida <= 0)
+            {
                 ZombieScript.Morir(0);
             }
-            Destroy(gameObject);
-            return;
         }
 
-        // Desaparecer al tocar un objeto sólido no atravesable
-        impacto = true;
         Destroy(gameObject);
     }
 }
