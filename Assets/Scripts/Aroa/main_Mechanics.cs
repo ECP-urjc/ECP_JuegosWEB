@@ -15,11 +15,16 @@ public class main_Mechanics : MonoBehaviour
     public int puntaje;
     public int numCombo;
     public int curasEsparcidas;
+    public string siguienteObjetivo;
 
     [Header("Atributos internos")]
     public int perdidaStaminaPorSalto;
     public string razonCombo;
     public int puntosPorSaltoEnPared;
+    public int puntosPorSaltoEnRampa;
+
+    [Header("Torres Iniciales")]
+    public string[] torres = new string[3];
 
     [Header("Balas")]
     public int balasCargadas;
@@ -42,6 +47,7 @@ public class main_Mechanics : MonoBehaviour
     public float gravedad = 30f;
     private float velocidadVertical = 0f;
     public bool enPausa = false;
+    private bool finalRampa;
 
     [Header("Salto de Pared")]
     public float fuerzaSaltoPared = 15f;
@@ -66,12 +72,14 @@ public class main_Mechanics : MonoBehaviour
     private bool quiereSaltar = false;
     private bool quiereAtacar = false;
     private bool restandoStamina = false;
+    private float tiempoTexto;
 
     private Rigidbody rb;
 
     void Start()
     {
         texto.text = "";
+        finalRampa = false;
         rb = GetComponent<Rigidbody>();
 
         rb.constraints = RigidbodyConstraints.FreezeRotationX |
@@ -79,6 +87,12 @@ public class main_Mechanics : MonoBehaviour
 
         rb.useGravity = true;
 
+        siguienteObjetivo = EleccionPrimeraTorre();
+    }
+
+    public string EleccionPrimeraTorre()
+    {
+        return torres[Random.Range(0, torres.Length)];
     }
 
     void FixedUpdate()
@@ -96,6 +110,7 @@ public class main_Mechanics : MonoBehaviour
             JumpDetector();
             ZoomCamera();
         }
+        ResetearTexto();
     }
 
     public void Movement()
@@ -211,25 +226,50 @@ public class main_Mechanics : MonoBehaviour
         if (quiereSaltar && estaEnSuelo)
         {
             velocidadVertical = fuerzaSalto;
+            if (finalRampa)
+            {
+                if (stamina >= perdidaStaminaPorSalto)
+                {
+                    velocidadVertical = fuerzaSalto * 2.5f;
+                    currentSpeed = maxSpeed;
+                    puntaje += puntosPorSaltoEnRampa * (numCombo + 1);
+                    numCombo++;
+                    razonCombo = "Rampa";
+
+                    stamina -= perdidaStaminaPorSalto;
+                }
+                else
+                {
+                    texto.text = "Stamina insuficiente";
+                }
+            }
+
             estaEnSuelo = false;
             quiereSaltar = false;
         }
-        else if (quiereSaltar && tocandoPared && stamina >= perdidaStaminaPorSalto)
+        else if (quiereSaltar && tocandoPared)
         {
-            velocidadVertical = fuerzaSalto * 1.5f;
+            if (stamina >= perdidaStaminaPorSalto)
+            {
+                velocidadVertical = fuerzaSalto * 1.5f;
 
-            // Velocidad hacia la normal de la pared, se da una sola vez
-            velocidadPared = normalPared * fuerzaSaltoPared;
+                // Velocidad hacia la normal de la pared, se da una sola vez
+                velocidadPared = normalPared * fuerzaSaltoPared;
 
-            tocandoPared = false;
-            quiereSaltar = false;
+                tocandoPared = false;
+                quiereSaltar = false;
 
-            stamina -= perdidaStaminaPorSalto;
+                stamina -= perdidaStaminaPorSalto;
 
-            puntaje += puntosPorSaltoEnPared * (numCombo + 1);
-            numCombo++;
-            razonCombo = "Salto en Pared";
-        }
+                puntaje += puntosPorSaltoEnPared * (numCombo + 1);
+                numCombo++;
+                razonCombo = "Pared";
+            }
+            else
+            {
+                texto.text = "Stamina insuficiente";
+            }
+        } 
 
         // Gravedad
         if (!estaEnSuelo)
@@ -401,6 +441,22 @@ public class main_Mechanics : MonoBehaviour
         restandoStamina = false;
     }
 
+    public void ResetearTexto()
+    {
+        if(tiempoTexto >= 3)
+        {
+            texto.text = "";
+        }
+
+        if (texto.text != "")
+        {
+            tiempoTexto += Time.unscaledDeltaTime;
+        }else
+        {
+            tiempoTexto = 0;
+        }
+    }
+
     void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Suelo"))
@@ -489,5 +545,21 @@ public class main_Mechanics : MonoBehaviour
 
         normalPared = normal;
         tocandoPared = true;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("finalRampa"))
+        {
+            finalRampa = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("finalRampa"))
+        {
+            finalRampa = false;
+        }
     }
 }

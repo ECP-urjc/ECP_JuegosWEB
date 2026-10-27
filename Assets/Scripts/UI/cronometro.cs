@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class cronometro : MonoBehaviour
 {
@@ -9,10 +10,19 @@ public class cronometro : MonoBehaviour
     public main_Mechanics PersonajeScript;
 
     [Header("Cronometros")]
-    public TextMeshProUGUI CronometroTotal;
-    public TextMeshProUGUI CronometroEntreTorres;
+    public TextMeshProUGUI Cronometro;
+    public bool invertir;
+    public int tiempoInicial;
 
-    private float tiempo = 0f;
+    public float tiempo = 0f;
+
+    void Start()
+    {
+        if (invertir)
+        {
+            tiempo = tiempoInicial;
+        }
+    }
 
     void Update()
     {
@@ -20,7 +30,16 @@ public class cronometro : MonoBehaviour
         {
             return;
         }
-        tiempo += Time.unscaledDeltaTime;
+
+        if(invertir)
+        {
+            tiempo -= Time.unscaledDeltaTime;
+        }
+        else
+        {
+            tiempo += Time.unscaledDeltaTime;
+        }
+        
 
         int horas = Mathf.FloorToInt(tiempo / 3600f);
         int minutos = Mathf.FloorToInt((tiempo % 3600f) / 60f);
@@ -30,7 +49,7 @@ public class cronometro : MonoBehaviour
         if (horas > 0)
         {
             // HH:MM:SS.CC
-            CronometroTotal.text = string.Format(
+            Cronometro.text = string.Format(
                 "{0:00}:{1:00}:{2:00}.{3:00}",
                 horas,
                 minutos,
@@ -41,12 +60,18 @@ public class cronometro : MonoBehaviour
         else
         {
             // MM:SS.CC
-            CronometroTotal.text = string.Format(
+            Cronometro.text = string.Format(
                 "{0:00}:{1:00}.{2:00}",
                 minutos,
                 segundos,
                 centesimas
             );
+        }
+
+        if(invertir == true && tiempo <= 0)
+        {
+            tiempo = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
