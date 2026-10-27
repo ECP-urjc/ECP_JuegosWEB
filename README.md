@@ -31,6 +31,6 @@
 ## Ideas
 
     [-] Efecto visual para cuando se relentiza el tiempo
-    [-] -
+    [-] Posibilidad de Jugar con Mando
     [-] -
 
