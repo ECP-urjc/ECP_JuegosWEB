@@ -7,6 +7,7 @@
     [X] Si mantienes pulsado el shift se relentiza el tiempo
     [X] Agarras carga de matar zombies
     [X] Sistema de combos
+    [X] Sistema de aleatoriedad de las torres
 
 
 ## Bugs y Errores
@@ -22,7 +23,7 @@
 
     [-] Implementación de UI
     [-] Integración de Arte 2D
-    [-] Jugar con las físicas para hacer trucos con el skate
+    [X] Jugar con las físicas para hacer trucos con el skate
     [-] Pulir apuntado del personaje en la 3 persona
 
 
