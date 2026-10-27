@@ -8,6 +8,7 @@
     [X] Agarras carga de matar zombies
     [X] Sistema de combos
     [X] Sistema de aleatoriedad de las torres
+    [-] Comportamineto de los zombies
 
 
 ## Bugs y Errores
