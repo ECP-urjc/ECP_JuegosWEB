@@ -45,24 +45,31 @@ public class NuevoObjetivoTexto : MonoBehaviour
 
     public void Timer()
     {
-        if (timer <= 5 && startTimer)
+        float destinoY = yOculto;
+
+        if (startTimer)
         {
             timer += Time.unscaledDeltaTime;
-            rect.anchoredPosition = Vector2.Lerp(
-                rect.anchoredPosition,
-                new Vector2(rect.anchoredPosition.x, yVisible),
-                10 * Time.unscaledDeltaTime
-            );
+
+            if (timer < 5f)
+            {
+                destinoY = yVisible;
+            }
+            else
+            {
+                startTimer = false;
+            }
         }
-        else
-        {
-            timer = 0;
-            startTimer = false;
-            rect.anchoredPosition = Vector2.Lerp(
-                rect.anchoredPosition,
-                new Vector2(rect.anchoredPosition.x, yOculto),
-                10 * Time.unscaledDeltaTime
-            );
-        }
+
+        Vector2 posicionDestino = new Vector2(
+            rect.anchoredPosition.x,
+            destinoY
+        );
+
+        rect.anchoredPosition = Vector2.Lerp(
+            rect.anchoredPosition,
+            posicionDestino,
+            1f - Mathf.Exp(-10f * Time.unscaledDeltaTime)
+        );
     }
 }
