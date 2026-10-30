@@ -12,7 +12,7 @@ public class respawn_sandbox : MonoBehaviour
     {
         if(transform.position.y < -10.0f || personajeScript.vida <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("SandBox");
         }
     }
 }
