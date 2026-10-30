@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 139271069}
   - component: {fileID: 139271068}
   m_Layer: 5
-  m_Name: Button (3)
+  m_Name: VCompleta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -698,7 +698,7 @@ GameObject:
   - component: {fileID: 349483221}
   - component: {fileID: 349483220}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Opciones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1908,7 +1908,7 @@ GameObject:
   - component: {fileID: 1112661963}
   - component: {fileID: 1112661962}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Jugar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1977,7 +1977,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1112661963}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1013723540}
+        m_TargetAssemblyTypeName: Menu_logic, Assembly-CSharp
+        m_MethodName: Jugar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1112661963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3146,7 +3158,7 @@ GameObject:
   - component: {fileID: 1987851851}
   - component: {fileID: 1987851850}
   m_Layer: 5
-  m_Name: Button (2)
+  m_Name: Salir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3215,7 +3227,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1987851851}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1013723540}
+        m_TargetAssemblyTypeName: Menu_logic, Assembly-CSharp
+        m_MethodName: CambioEscena
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: -1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1987851851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3451,6 +3475,7 @@ PrefabInstance:
     - {fileID: 2245907674281588586, guid: 525ef140f13718f40b8cd1e1d3fbff4f, type: 3}
     - {fileID: 7290728859279847277, guid: 525ef140f13718f40b8cd1e1d3fbff4f, type: 3}
     - {fileID: 3438253130018401555, guid: 525ef140f13718f40b8cd1e1d3fbff4f, type: 3}
+    - {fileID: 4142272093621781754, guid: 525ef140f13718f40b8cd1e1d3fbff4f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

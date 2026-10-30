@@ -47,11 +47,11 @@ public class menu_pausa : MonoBehaviour
 
     public void ReiniciarEscena()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene("SandBox");
     }
 
     public void SalirJuego()
     {
-        Application.Quit();
+        SceneManager.LoadScene("menu(s)");
     }
 }

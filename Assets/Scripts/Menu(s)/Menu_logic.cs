@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Menu_logic : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class Menu_logic : MonoBehaviour
 
     void Start()
     {
+        menu_actual = 0;
         timer = 0;
         panelNegro.alpha = 1f;
     }
@@ -67,6 +69,16 @@ public class Menu_logic : MonoBehaviour
             break;
         }
         RestoMenus();
+    }
+
+    public void CambioEscena(int index)
+    {
+        menu_actual = index;
+    }
+
+    public void Jugar()
+    {
+        SceneManager.LoadScene("SandBox");
     }
 
     // Llámalo desde los botones del menú
