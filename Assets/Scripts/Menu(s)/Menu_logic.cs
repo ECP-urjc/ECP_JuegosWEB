@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Runtime.CompilerServices;
 
 public class Menu_logic : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Menu_logic : MonoBehaviour
     public float velocidad = 5f;
     public int menu_actual;
     public int sub_menu;
+    public GameObject Canvas;
 
     [Header("Menú Inicial")]
     public TextMeshProUGUI textoPulsa;
@@ -22,10 +24,10 @@ public class Menu_logic : MonoBehaviour
     public GameObject botones;
 
     [Header("Menú Opciones")]
-
+    public GameObject opciones;
 
     [Header("Menú Versión Completa")]
-
+    public GameObject menuVS;
 
     [Header("Confirmar salida")]
     public GameObject seguroPanel;
@@ -43,6 +45,10 @@ public class Menu_logic : MonoBehaviour
         menu_actual = 0;
         timer = 0;
         panelNegro.alpha = 1f;
+        Camera CAMERA = camara.GetComponent<Camera>();
+        CAMERA.enabled = false;
+        CAMERA.enabled = true;
+        Canvas.SetActive(true);
     }
 
     void Update()
@@ -69,6 +75,11 @@ public class Menu_logic : MonoBehaviour
             break;
         }
         RestoMenus();
+    }
+
+    Vector3 P(float x, float y)
+    {
+        return new Vector3(x * Screen.width / 3840f, y * Screen.height / 2160f, 0);
     }
 
     public void CambioEscena(int index)
@@ -110,8 +121,8 @@ public class Menu_logic : MonoBehaviour
 
     public void Menu0()
     {
-        textoPulsa.transform.position = Vector3.Lerp(textoPulsa.transform.position, new Vector3(1920, 380, 0), 10 * Time.deltaTime);
-        logoJuego.transform.position = Vector3.Lerp(logoJuego.transform.position, new Vector3(1920, 1430, 0), 20 * Time.deltaTime);
+        textoPulsa.transform.position = Vector3.Lerp(textoPulsa.transform.position, P(1920, 380), 10 * Time.deltaTime);
+        logoJuego.transform.position = Vector3.Lerp(logoJuego.transform.position, P(1920, 1430), 20 * Time.deltaTime);
 
         if(Input.anyKeyDown)
         {
@@ -122,56 +133,51 @@ public class Menu_logic : MonoBehaviour
 
     public void Menu_1()
     {
-       seguroPanel.transform.position = Vector3.Lerp(seguroPanel.transform.position, new Vector3(1920, 1080, 0), 10 * Time.deltaTime);
-
-       if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            menu_actual = -2;
-        }
+       seguroPanel.transform.position = Vector3.Lerp(seguroPanel.transform.position, P(1920, 1080), 10 * Time.deltaTime);
     }
 
     public void Menu1()
     {
-        menuInicial.transform.position = Vector3.Lerp(menuInicial.transform.position, new Vector3(3117, 1080, 0), 10 * Time.deltaTime);
-        botones.transform.position = Vector3.Lerp(botones.transform.position, new Vector3(1920, 1080, 0), 10 * Time.deltaTime);
+        menuInicial.transform.position = Vector3.Lerp(menuInicial.transform.position, P(3117, 1080), 10 * Time.deltaTime);
+        botones.transform.position = Vector3.Lerp(botones.transform.position, P(1920, 1080), 10 * Time.deltaTime);
     }
 
     public void Menu2()
     {
-
+        opciones.transform.position = Vector3.Lerp(opciones.transform.position, P(1920, 250), 10 * Time.deltaTime);
     }
 
     public void Menu3()
     {
-
+        menuVS.transform.position = Vector3.Lerp(menuVS.transform.position, P(1920, 250), 10 * Time.deltaTime);
     }
 
     public void RestoMenus()
     {
         if(menu_actual != 0)
         {
-            textoPulsa.transform.position = Vector3.Lerp(textoPulsa.transform.position, new Vector3(1920, -300, 0), 10 * Time.deltaTime);
-            logoJuego.transform.position = Vector3.Lerp(logoJuego.transform.position, new Vector3(1920, 3430, 0), 20 * Time.deltaTime);
+            textoPulsa.transform.position = Vector3.Lerp(textoPulsa.transform.position, P(1920, -300), 10 * Time.deltaTime);
+            logoJuego.transform.position = Vector3.Lerp(logoJuego.transform.position, P(1920, 3430), 20 * Time.deltaTime);
         }
 
         if(menu_actual != 1)
         {
-            menuInicial.transform.position = Vector3.Lerp(menuInicial.transform.position, new Vector3(5117, 1080, 0), 10 * Time.deltaTime);
-            botones.transform.position = Vector3.Lerp(botones.transform.position, new Vector3(3920, 1080, 0), 10 * Time.deltaTime);
+            menuInicial.transform.position = Vector3.Lerp(menuInicial.transform.position, P(5117, 1080), 10 * Time.deltaTime);
+            botones.transform.position = Vector3.Lerp(botones.transform.position, P(3920, 1080), 10 * Time.deltaTime);
         }
 
         if(menu_actual != 2)
         {
-
+            opciones.transform.position = Vector3.Lerp(opciones.transform.position, P(1920, -250), 10 * Time.deltaTime);
         }
 
         if(menu_actual != 3)
         {
-            
+            menuVS.transform.position = Vector3.Lerp(menuVS.transform.position, P(1920, -250), 10 * Time.deltaTime);
         }
         if(menu_actual != -1)
         {
-       seguroPanel.transform.position = Vector3.Lerp(seguroPanel.transform.position, new Vector3(1920, -1080, 0), 10 * Time.deltaTime);
+       seguroPanel.transform.position = Vector3.Lerp(seguroPanel.transform.position, P(1920, -1080), 10 * Time.deltaTime);
 
         }
         if (menu_actual != -2)
