@@ -16,8 +16,7 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
-      human bone 'LeftUpperLeg' not found\n"
+    rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -36,7 +35,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.25
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -91,7 +90,7 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: Cone.006
       parentName: Aroa(Clone)
-      position: {x: 1.5124882, y: -1.0498264, z: 0.0000006586164}
+      position: {x: 0.0037812204, y: -0.002624566, z: 0.0000000016465409}
       rotation: {x: -0.3400406, y: 0.61997783, z: -0.61997765, w: 0.34004053}
       scale: {x: 28.27315, y: 28.27315, z: 28.27315}
     - name: Cube
@@ -101,67 +100,67 @@ ModelImporter:
       scale: {x: 336.98175, y: 336.98175, z: 336.98175}
     - name: Cube.001
       parentName: Aroa(Clone)
-      position: {x: -0.40439585, y: 0.000000059604645, z: 0}
+      position: {x: -0.0010109895, y: 1.4901161e-10, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 191.81764, y: 191.81764, z: 191.81764}
     - name: Cube.004
       parentName: Aroa(Clone)
-      position: {x: -1.3366085, y: -7.34142, z: 0.009565815}
+      position: {x: -0.0033415214, y: -0.01835355, z: 0.000023914537}
       rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
       scale: {x: 141.35587, y: 141.35587, z: 141.35587}
     - name: Cube.005
       parentName: Aroa(Clone)
-      position: {x: -1.3366085, y: -7.34142, z: 0.009565815}
+      position: {x: -0.0033415214, y: -0.01835355, z: 0.000023914537}
       rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
       scale: {x: 141.35587, y: 141.35587, z: 141.35587}
     - name: Cube.006
       parentName: Aroa(Clone)
-      position: {x: -1.3366085, y: -7.34142, z: 0.009565815}
+      position: {x: -0.0033415214, y: -0.01835355, z: 0.000023914537}
       rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
       scale: {x: 141.35587, y: 141.35587, z: 141.35587}
     - name: Cube.007
       parentName: Aroa(Clone)
-      position: {x: -1.3366085, y: -7.34142, z: 0.009565815}
+      position: {x: -0.0033415214, y: -0.01835355, z: 0.000023914537}
       rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
       scale: {x: 141.35587, y: 141.35587, z: 141.35587}
     - name: Cube.008
       parentName: Aroa(Clone)
-      position: {x: -1.3366085, y: -7.686808, z: 0.009565815}
+      position: {x: -0.0033415214, y: -0.01921702, z: 0.000023914537}
       rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
       scale: {x: 141.35587, y: 141.35587, z: 141.35587}
     - name: Cube.009
       parentName: Aroa(Clone)
-      position: {x: -1.3366085, y: -7.34142, z: 0.009565815}
+      position: {x: -0.0033415214, y: -0.01835355, z: 0.000023914537}
       rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
       scale: {x: 141.35587, y: 141.35587, z: 141.35587}
     - name: Plane.001
       parentName: Aroa(Clone)
-      position: {x: -2.7639296, y: -4.8892922, z: -0.864374}
+      position: {x: -0.006909824, y: -0.012223229, z: -0.002160935}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
     - name: Plane.002
       parentName: Aroa(Clone)
-      position: {x: -3.2275283, y: -6.742048, z: -0.9595746}
+      position: {x: -0.00806882, y: -0.016855119, z: -0.0023989363}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 141.98038, y: 141.98038, z: 141.98038}
     - name: Plane.005
       parentName: Aroa(Clone)
-      position: {x: -1.2713058, y: -19.0779, z: 5.561827}
+      position: {x: -0.0031782642, y: -0.047694746, z: 0.013904567}
       rotation: {x: -0.071294844, y: -0.07415119, z: 0.0024615573, w: 0.9946922}
       scale: {x: 136.59285, y: 136.59285, z: 136.59285}
     - name: Sphere
       parentName: Aroa(Clone)
-      position: {x: -0.41267207, y: 0, z: 0}
+      position: {x: -0.0010316801, y: 0, z: 0}
       rotation: {x: -0.70697814, y: -0.013492396, z: 0.013492392, w: 0.706978}
       scale: {x: 55.573105, y: 55.573105, z: 55.573105}
     - name: Sphere.001
       parentName: Aroa(Clone)
-      position: {x: -0.4906623, y: 0, z: 0.00000011920929}
+      position: {x: -0.0012266558, y: 0, z: 2.9802322e-10}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 10.050346, y: 10.050346, z: 10.050346}
     - name: Sphere.002
       parentName: Aroa(Clone)
-      position: {x: -0.50940794, y: 0, z: 0}
+      position: {x: -0.0012735197, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 9.808853, y: 9.808853, z: 9.808853}
     armTwist: 0.5
@@ -171,7 +170,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.0025
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 1
