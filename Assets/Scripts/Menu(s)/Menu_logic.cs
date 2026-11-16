@@ -122,7 +122,7 @@ public class Menu_logic : MonoBehaviour
     public void Menu0()
     {
         textoPulsa.transform.position = Vector3.Lerp(textoPulsa.transform.position, P(1920, 380), 10 * Time.deltaTime);
-        logoJuego.transform.position = Vector3.Lerp(logoJuego.transform.position, P(1920, 1430), 20 * Time.deltaTime);
+        logoJuego.transform.position = Vector3.Lerp(logoJuego.transform.position, P(1920, 1330), 20 * Time.deltaTime);
 
         if(Input.anyKeyDown)
         {

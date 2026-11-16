@@ -1,0 +1,189 @@
+fileFormatVersion: 2
+guid: 6aeebf7d3106ead459af9c1379685745
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: Aroa(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cone.006
+      parentName: Aroa(Clone)
+      position: {x: 1.5124882, y: -1.0498264, z: 0.0000006586164}
+      rotation: {x: -0.3400406, y: 0.61997783, z: -0.61997765, w: 0.34004053}
+      scale: {x: 28.27315, y: 28.27315, z: 28.27315}
+    - name: Cube
+      parentName: Aroa(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 336.98175, y: 336.98175, z: 336.98175}
+    - name: Cube.001
+      parentName: Aroa(Clone)
+      position: {x: -0.40439585, y: 0.000000059604645, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 191.81764, y: 191.81764, z: 191.81764}
+    - name: Cube.004
+      parentName: Aroa(Clone)
+      position: {x: -1.3366085, y: -7.34142, z: 0.009565815}
+      rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
+      scale: {x: 141.35587, y: 141.35587, z: 141.35587}
+    - name: Cube.005
+      parentName: Aroa(Clone)
+      position: {x: -1.3366085, y: -7.34142, z: 0.009565815}
+      rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
+      scale: {x: 141.35587, y: 141.35587, z: 141.35587}
+    - name: Cube.006
+      parentName: Aroa(Clone)
+      position: {x: -1.3366085, y: -7.34142, z: 0.009565815}
+      rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
+      scale: {x: 141.35587, y: 141.35587, z: 141.35587}
+    - name: Cube.007
+      parentName: Aroa(Clone)
+      position: {x: -1.3366085, y: -7.34142, z: 0.009565815}
+      rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
+      scale: {x: 141.35587, y: 141.35587, z: 141.35587}
+    - name: Cube.008
+      parentName: Aroa(Clone)
+      position: {x: -1.3366085, y: -7.686808, z: 0.009565815}
+      rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
+      scale: {x: 141.35587, y: 141.35587, z: 141.35587}
+    - name: Cube.009
+      parentName: Aroa(Clone)
+      position: {x: -1.3366085, y: -7.34142, z: 0.009565815}
+      rotation: {x: -0.00000013767877, y: 0.7071068, z: 0.70710677, w: 0.00000013767878}
+      scale: {x: 141.35587, y: 141.35587, z: 141.35587}
+    - name: Plane.001
+      parentName: Aroa(Clone)
+      position: {x: -2.7639296, y: -4.8892922, z: -0.864374}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Plane.002
+      parentName: Aroa(Clone)
+      position: {x: -3.2275283, y: -6.742048, z: -0.9595746}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 141.98038, y: 141.98038, z: 141.98038}
+    - name: Plane.005
+      parentName: Aroa(Clone)
+      position: {x: -1.2713058, y: -19.0779, z: 5.561827}
+      rotation: {x: -0.071294844, y: -0.07415119, z: 0.0024615573, w: 0.9946922}
+      scale: {x: 136.59285, y: 136.59285, z: 136.59285}
+    - name: Sphere
+      parentName: Aroa(Clone)
+      position: {x: -0.41267207, y: 0, z: 0}
+      rotation: {x: -0.70697814, y: -0.013492396, z: 0.013492392, w: 0.706978}
+      scale: {x: 55.573105, y: 55.573105, z: 55.573105}
+    - name: Sphere.001
+      parentName: Aroa(Clone)
+      position: {x: -0.4906623, y: 0, z: 0.00000011920929}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 10.050346, y: 10.050346, z: 10.050346}
+    - name: Sphere.002
+      parentName: Aroa(Clone)
+      position: {x: -0.50940794, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 9.808853, y: 9.808853, z: 9.808853}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 077a4919a743f8044a9dcd260d0db475, type: 3}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 2
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
