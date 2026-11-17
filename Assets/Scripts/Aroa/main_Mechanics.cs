@@ -5,6 +5,9 @@ using TMPro;
 
 public class main_Mechanics : MonoBehaviour
 {
+    [Header("Personaje")]
+    public GameObject personaje;
+
     [Header("Cámara")]
     public GameObject[] camaraPositions;
     public GameObject mira;
@@ -68,12 +71,11 @@ public class main_Mechanics : MonoBehaviour
     [Header("Internas")]
     public TextMeshProUGUI texto;
     private float currentSpeed = 0f;
-    private bool estaEnSuelo;
+    public bool estaEnSuelo;
     private bool quiereSaltar = false;
     private bool quiereAtacar = false;
     private bool restandoStamina = false;
     private float tiempoTexto;
-
     private Rigidbody rb;
 
     void Start()
@@ -230,7 +232,7 @@ public class main_Mechanics : MonoBehaviour
             {
                 if (stamina >= perdidaStaminaPorSalto)
                 {
-                    velocidadVertical = fuerzaSalto * 2.5f;
+                    velocidadVertical = fuerzaSalto * 2f;
                     currentSpeed = maxSpeed;
                     puntaje += puntosPorSaltoEnRampa * (numCombo + 1);
                     numCombo++;
@@ -336,6 +338,7 @@ public class main_Mechanics : MonoBehaviour
                 15f * Time.unscaledDeltaTime
             );
             mira.SetActive(true);
+            personaje.SetActive(false);
         }
 
         // Volver la camara a la posición original
@@ -351,9 +354,9 @@ public class main_Mechanics : MonoBehaviour
                 15f * Time.unscaledDeltaTime
             );
             mira.SetActive(false);
+            personaje.SetActive(true);
         }
     }
-
 
     public void Ataque()
     {
