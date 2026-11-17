@@ -25,7 +25,7 @@
     [-] Implementación de UI
     [-] Integración de Arte 2D
     [X] Jugar con las físicas para hacer trucos con el skate
-    [-] Pulir apuntado del personaje en la 3 persona
+    [X] Pulir apuntado del personaje en la 3 persona
 
 
 ## Ideas
