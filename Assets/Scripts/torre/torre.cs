@@ -13,6 +13,7 @@ public class torre : MonoBehaviour
     public cronometro Cronometro;
     public string texto;
     public int puntaje;
+    public int tiempo;
 
     [Header("Internas")]
     private bool enZona = false;
@@ -30,7 +31,7 @@ public class torre : MonoBehaviour
             personajeScript.texto.text = "";
             personajeScript.siguienteObjetivo = SorteoTorre();
             personajeScript.puntaje += puntaje;
-            Cronometro.tiempo += 120;
+            Cronometro.tiempo += tiempo;
             enZona = false;
         }
     }
