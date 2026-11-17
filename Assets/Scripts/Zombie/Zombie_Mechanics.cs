@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,16 +8,34 @@ public class Zombie_Mechanics : MonoBehaviour
 {
     [Header("Personaje")]
     public main_Mechanics personajeScript;
+    
+    [Header("Modelo")]
+    public Animator ZombieAnimator;
 
-    [Header("Vida")]
+    [Header("Atributos")]
     public int daño = 10;
     public int vida = 10;
     public int stamina = 10;
     public float tiempoEntreAtaques = 2f;
     public int puntaje = 10;
-
+    private float timer = 0;
     private Coroutine corrutinaAtaque;
+    private bool killed = false;
+    private Vector3 deadPos;
 
+    void Update()
+    {
+        if (killed)
+        {
+            timer += Time.deltaTime;
+            transform.position = deadPos;
+
+            if (timer >= 10f)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
     public void Morir(int aux)
     {
         switch(aux){
@@ -30,13 +49,18 @@ public class Zombie_Mechanics : MonoBehaviour
             break;
         }
         personajeScript.stamina += stamina;
-        Destroy(gameObject);
+        ZombieAnimator.SetTrigger("die");
+        deadPos = transform.position;
+        GetComponent<Collider>().enabled = false;
+        gameObject.tag = "Untagged";
+        killed = true;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            ZombieAnimator.SetBool("atack", true);
             if (corrutinaAtaque == null)
             {
                 corrutinaAtaque = StartCoroutine(AtaqueContinuo());
@@ -48,6 +72,7 @@ public class Zombie_Mechanics : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            ZombieAnimator.SetBool("atack", false);
             if (corrutinaAtaque != null)
             {
                 StopCoroutine(corrutinaAtaque);
