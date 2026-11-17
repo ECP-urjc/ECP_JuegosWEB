@@ -43,12 +43,20 @@ public class Menu_logic : MonoBehaviour
     void Start()
     {
         menu_actual = 0;
+        sub_menu = 0;
         timer = 0;
+
         panelNegro.alpha = 1f;
+        panelNegro.blocksRaycasts = true;
+        panelNegro.interactable = true;
+
         Camera CAMERA = camara.GetComponent<Camera>();
-        CAMERA.enabled = false;
         CAMERA.enabled = true;
+
         Canvas.SetActive(true);
+
+        camara.transform.position = positions[0].transform.position;
+        camara.transform.rotation = positions[0].transform.rotation;
     }
 
     void Update()
@@ -182,24 +190,39 @@ public class Menu_logic : MonoBehaviour
         }
         if (menu_actual != -2)
         {
-            // Se desvanece
-            panelNegro.alpha = Mathf.Lerp(panelNegro.alpha, 0f, 2 * Time.deltaTime);
-            if (panelNegro.alpha < 0.01f)
+            panelNegro.alpha = Mathf.MoveTowards(
+                panelNegro.alpha,
+                0f,
+                2f * Time.deltaTime
+            );
+
+            if (panelNegro.alpha == 0f)
             {
-                panelNegro.alpha = 0f;
                 panelNegro.blocksRaycasts = false;
+                panelNegro.interactable = false;
             }
         }
         else
         {
-            // Aparece
             panelNegro.blocksRaycasts = true;
-            panelNegro.alpha = Mathf.Lerp(panelNegro.alpha, 1f, 2 * Time.deltaTime);
-            if(timer >= 2)
+            panelNegro.interactable = true;
+
+            panelNegro.alpha = Mathf.MoveTowards(
+                panelNegro.alpha,
+                1f,
+                2f * Time.deltaTime
+            );
+
+            timer += Time.deltaTime;
+
+            if (timer >= 2f)
             {
                 Application.Quit();
+
+                #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+                #endif
             }
-            timer += Time.deltaTime;
         }
     }
 }
