@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Security.Cryptography.X509Certificates;
+using UnityEngine.SceneManagement;
 
 public class main_Mechanics : MonoBehaviour
 {
@@ -25,6 +27,17 @@ public class main_Mechanics : MonoBehaviour
     public string razonCombo;
     public int puntosPorSaltoEnPared;
     public int puntosPorSaltoEnRampa;
+
+    [Header("UIs")]
+    public GameObject UI_Atributos;
+    public GameObject UI_Balas;
+    public GameObject UI_Combos;
+    public GameObject UI_NuevoObjetivo;
+    public GameObject UI_ActualObjetivo;
+    public GameObject UI_Puntos;
+    public GameObject UI_Tiempo;
+    public GameObject UI_TextoInteraccion;
+    public GameObject UI_repetir;
 
     [Header("Torres Iniciales")]
     public string[] torres = new string[3];
@@ -77,6 +90,8 @@ public class main_Mechanics : MonoBehaviour
     private bool restandoStamina = false;
     private float tiempoTexto;
     private Rigidbody rb;
+    public bool vivo;
+    private float tiempo;
 
     void Start()
     {
@@ -90,6 +105,7 @@ public class main_Mechanics : MonoBehaviour
         rb.useGravity = true;
 
         siguienteObjetivo = EleccionPrimeraTorre();
+        vivo = true;
     }
 
     public string EleccionPrimeraTorre()
@@ -99,20 +115,70 @@ public class main_Mechanics : MonoBehaviour
 
     void FixedUpdate()
     {
-        Movement();
-        Jump();
-        Ataque();
+        if(vivo)
+        {
+            Movement();
+            Jump();
+            Ataque();
+        }
     }
 
     void Update()
     {
-        Relentizar();
-        if(!enPausa)
+        if(vivo)
         {
-            JumpDetector();
-            ZoomCamera();
+            Relentizar();
+            if(!enPausa)
+            {
+                JumpDetector();
+                ZoomCamera();
+                Cursor.visible = false;
+            }else{
+                Cursor.visible = true;
+            }
+            ResetearTexto();   
         }
-        ResetearTexto();
+        else
+        {
+            EndRun();
+        }
+    }
+
+    public void EndRun()
+    {
+        Cursor.visible = false;
+        Time.timeScale = 1f;
+
+        rb.velocity = new Vector3(0, rb.velocity.y, 0);
+
+        GameObject camara = camaraPositions[0];
+        Vector3 endCameraPos = camaraPositions[3].transform.position;
+        Quaternion endCameraRot = camaraPositions[3].transform.rotation;
+
+        camara.transform.position = endCameraPos;
+        camara.transform.rotation = endCameraRot;
+        mira.SetActive(false);
+        personaje.SetActive(true);
+
+        UI_Atributos.SetActive(false);
+        UI_Balas.SetActive(false);
+        UI_ActualObjetivo.SetActive(false);
+        UI_Combos.SetActive(false);
+        UI_NuevoObjetivo.SetActive(false);
+        UI_Puntos.SetActive(false);
+        UI_Tiempo.SetActive(false);
+        UI_TextoInteraccion.SetActive(false);
+
+        if (tiempo >= 3)
+        {
+            UI_repetir.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            tiempo += Time.unscaledDeltaTime;
+        }
     }
 
     public void Movement()

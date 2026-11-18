@@ -26,6 +26,20 @@ public class cronometro : MonoBehaviour
 
     void Update()
     {
+        if(PersonajeScript.vivo)
+        {
+            TimeUpdate();
+        }
+        if(invertir == true && tiempo <= 0)
+        {
+            tiempo = 0;
+            Cronometro.text = "00:00:00";
+            PersonajeScript.vivo = false;
+        }
+    }
+
+    void TimeUpdate()
+    {
         if(PersonajeScript.enPausa)
         {
             return;
@@ -66,12 +80,6 @@ public class cronometro : MonoBehaviour
                 segundos,
                 centesimas
             );
-        }
-
-        if(invertir == true && tiempo <= 0)
-        {
-            tiempo = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

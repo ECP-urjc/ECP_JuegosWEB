@@ -12,5 +12,6 @@ public class AroaAnimations : MonoBehaviour
     {
         animator.SetFloat("velocity", rb.velocity.magnitude);
         animator.SetBool("enSuelo", personajeScript.estaEnSuelo);
+        animator.SetBool("vivo", personajeScript.vivo);
     }
 }
