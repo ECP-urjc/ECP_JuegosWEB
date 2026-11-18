@@ -19,9 +19,15 @@ public class menu_pausa : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && PersonajeScript.vivo)
         {
             CambiarPausa();
+        }
+
+        if(PersonajeScript.vivo == false)
+        {
+            menuPausa.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 
@@ -47,11 +53,13 @@ public class menu_pausa : MonoBehaviour
 
     public void ReiniciarEscena()
     {
-        SceneManager.LoadScene("SandBox");
+        PersonajeScript.enPausa = false;
+        SceneManager.LoadScene("Nivel");
     }
 
     public void SalirJuego()
     {
+        PersonajeScript.enPausa = false;
         SceneManager.LoadScene("menu(s)");
     }
 }
