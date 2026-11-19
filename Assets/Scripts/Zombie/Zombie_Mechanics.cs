@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class Zombie_Mechanics : MonoBehaviour
 {
     [Header("Personaje")]
     public main_Mechanics personajeScript;
+    public Transform jugador;
+
+    [Header("Deteccion")]
+    public float distanciaDeteccion = 20f;
+    private NavMeshAgent agent;
     
     [Header("Modelo")]
     public Animator ZombieAnimator;
+    private Rigidbody rb;
 
     [Header("Atributos")]
     public int daño = 10;
@@ -23,6 +30,11 @@ public class Zombie_Mechanics : MonoBehaviour
     private bool killed = false;
     private Vector3 deadPos;
 
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+    }
+    
     void Update()
     {
         if (killed)
@@ -33,6 +45,33 @@ public class Zombie_Mechanics : MonoBehaviour
             if (timer >= 10f)
             {
                 Destroy(gameObject);
+            }
+
+
+        }
+        else
+        {
+            float velocidad = agent.velocity.magnitude;
+            ZombieAnimator.SetFloat("speed", velocidad);
+
+            if (personajeScript.vivo){
+                if (jugador == null){return;}
+
+                float distancia = Vector3.Distance(
+                    transform.position,
+                    jugador.position
+                );
+
+                // Si el jugador esta cerca, perseguirlo
+                if (distancia <= distanciaDeteccion)
+                {
+                    agent.isStopped = false;
+                    agent.SetDestination(jugador.position);
+                }
+                else
+                {
+                    agent.isStopped = true;
+                }
             }
         }
     }
