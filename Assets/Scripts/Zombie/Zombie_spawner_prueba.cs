@@ -31,9 +31,10 @@ public class Zombie_spawner_prueba : MonoBehaviour
     void GenerarZombie()
     {
         float x = Random.Range(-tamanoMapa.x / 2f, tamanoMapa.x / 2f);
+        float y = tamanoMapa.y;
         float z = Random.Range(-tamanoMapa.z / 2f, tamanoMapa.z / 2f);
 
-        UnityEngine.Vector3 posicion = transform.position + new UnityEngine.Vector3(x, 1f, z);
+        UnityEngine.Vector3 posicion = transform.position + new UnityEngine.Vector3(x, y, z);
 
         GameObject zombie = Instantiate(
             prefabZombie,
