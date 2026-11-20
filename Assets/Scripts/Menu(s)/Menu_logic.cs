@@ -176,12 +176,12 @@ public class Menu_logic : MonoBehaviour
 
         if(menu_actual != 2)
         {
-            opciones.transform.position = Vector3.Lerp(opciones.transform.position, P(1920, -250), 10 * Time.deltaTime);
+            opciones.transform.position = Vector3.Lerp(opciones.transform.position, P(1920, -3250), 10 * Time.deltaTime);
         }
 
         if(menu_actual != 3)
         {
-            menuVS.transform.position = Vector3.Lerp(menuVS.transform.position, P(1920, -250), 10 * Time.deltaTime);
+            menuVS.transform.position = Vector3.Lerp(menuVS.transform.position, P(1920, -3250), 10 * Time.deltaTime);
         }
         if(menu_actual != -1)
         {
