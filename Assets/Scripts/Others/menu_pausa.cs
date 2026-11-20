@@ -9,6 +9,7 @@ public class menu_pausa : MonoBehaviour
     public main_Mechanics PersonajeScript;
 
     [Header("otros")]
+    public AudioSource audioSource;
     public GameObject menuPausa;
     private bool pausado = false;
     void Start()
@@ -35,6 +36,7 @@ public class menu_pausa : MonoBehaviour
     {
         pausado = !pausado;
 
+
         menuPausa.SetActive(pausado);
 
         if (pausado)
@@ -42,12 +44,14 @@ public class menu_pausa : MonoBehaviour
             PersonajeScript.enPausa = true;
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            audioSource.Pause();
         }
         else
         {
             PersonajeScript.enPausa = false;
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            audioSource.UnPause();
         }
     }
 
