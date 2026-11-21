@@ -100,11 +100,6 @@ public class Menu_logic : MonoBehaviour
         SceneManager.LoadScene("Nivel");
     }
 
-    public void AbrirPagina(string web)
-    {
-        Application.OpenURL(web);
-    }
-
     // Llámalo desde los botones del menú
     public void CambiarPosicion(int index)
     {

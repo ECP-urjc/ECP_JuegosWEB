@@ -77,11 +77,6 @@ public class Zombie_Mechanics : MonoBehaviour
     }
     public void Morir(int aux)
     {
-        if(corrutinaAtaque != null)
-        {
-            StopCoroutine(corrutinaAtaque);
-            corrutinaAtaque = null;  
-        }
         switch(aux){
             case 0:
                 personajeScript.puntaje += puntaje * (personajeScript.numCombo + 1);
