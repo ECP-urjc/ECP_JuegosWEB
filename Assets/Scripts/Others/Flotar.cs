@@ -8,6 +8,7 @@ public class Flotar : MonoBehaviour
 {
     [Header("Personaje")]
     public main_Mechanics personajeScript;
+    public Transform personaje;
 
     [Header("Elegir 'bala', 'vida', 'arma', 'stamina',...")]
     public string type;
@@ -36,6 +37,8 @@ public class Flotar : MonoBehaviour
             nuevaY,
             transform.position.z
         );
+
+        transform.LookAt(personaje);
     }
 
     public void SumarBalas()
