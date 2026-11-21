@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 88620d1576d228a449a67b382bf1d044
+guid: e7beb2b8ec54f1c4c82e4f050ef6b50b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rascacielos
+    second: {fileID: 2800000, guid: 0de84013db00772428999840d0df254e, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
