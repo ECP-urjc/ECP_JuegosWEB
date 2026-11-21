@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1280
     height: 677.3334
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Scene
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -295,8 +295,8 @@ MonoBehaviour:
     y: 0
     width: 254
     height: 627.3334
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -697,9 +697,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -192.2564, y: 21.279903, z: 342}
+    m_Target: {x: 1658.0323, y: 1402.1321, z: -680.43994}
     speed: 2
-    m_Value: {x: -192.2564, y: 21.279903, z: 342}
+    m_Value: {x: 1658.0323, y: 1402.1321, z: -680.43994}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -745,13 +745,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.47803164, y: -0.0013911424, z: 0.0007755582, w: -0.8783693}
+    m_Target: {x: 0.27445865, y: -0.04980716, z: 0.014207407, w: 0.96023744}
     speed: 2
-    m_Value: {x: -0.47801983, y: -0.001391108, z: 0.000775539, w: -0.8783476}
+    m_Value: {x: 0.2734892, y: -0.049819697, z: 0.014157116, w: 0.9604797}
   m_Size:
-    m_Target: 5.7244673
+    m_Target: 2202.9072
     speed: 2
-    m_Value: 5.7244673
+    m_Value: 2202.9067
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -813,20 +813,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6ef80100
-      m_LastClickedID: 129134
-      m_ExpandedIDs: 32b2f3ff1ec2f3ff869cf5ff9cf8f7ffcc5dfcff085efcffd05ffcff5e67fcff8c6dfcff3473feff847bfeff867bfeff1484feff2ac5feffe6c5feffe4cdfeff2afbffff867a0000ee7b00001a7c0000487f0000a8fc000046fd00004afe000052fe000054ff0000860101002a0401006e04010092050100c40601009e0801002ed7010054d8010066f40100eaf80100
+      m_SelectedIDs: 8c710000
+      m_LastClickedID: 29068
+      m_ExpandedIDs: e0b1feff6ae5ffff2afbffff5e5600008657000080580000845800000859000066590000a65b0000bc5b0000e45b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: AroaModelo
-        m_OriginalName: AroaModelo
+        m_Name: bala (4)
+        m_OriginalName: bala (4)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 128506
+        m_UserData: 22406
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -908,7 +908,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -1088,7 +1088,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Zombie
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1096,16 +1096,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Scripts/Zombie
+  - Assets
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\ruben\OneDrive - Universidad Rey Juan Carlos\Escritorio\ECP_JuegosWEB
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 402.33328}
-    m_SelectedIDs: 566d0000
-    m_LastClickedID: 27990
-    m_ExpandedIDs: 000000005e6000008c600000966000009c600000d2810000d8810000dc810000e481000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: de630000
+    m_LastClickedID: 25566
+    m_ExpandedIDs: 00000000de63000004640000146400004467000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1133,7 +1133,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005e600000
+    m_ExpandedIDs: 00000000de630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1164,18 +1164,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: c62300008c760000d8a70000c6740000ba740000b877000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Scenes
-      m_OriginalName: Scenes
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 24730
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
@@ -1185,7 +1185,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 22.666641}
     m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 204
