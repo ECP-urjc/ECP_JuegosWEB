@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: a0ac514dd167560458d8308dea89c3d3
+guid: 526b2717bdbd23442aec793c41dced2b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Rascacielos_Garaje
+    second: {fileID: 2800000, guid: 7df7e569a9103e1409c53c43bfd4e595, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
